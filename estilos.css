@@ -1,0 +1,17 @@
+p{
+    color: #2601FF;
+    background-color:rgba(153, 205, 50, 0);
+}
+
+h1,h2,h3,h4,h5,h6{
+    color: blue;
+    background-color: rgba(184, 180, 125, 0);
+}
+
+body{
+    background-color: #c5bebe;
+background-image: url(Midias/OIP.webp);
+/* background-repeat: no-repeat;
+background-size: cover; */
+background-attachment: fixed;
+}
