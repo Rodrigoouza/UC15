@@ -1,17 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Mr+Dafoe&family=Permanent+Marker&display=swap');
+
 p{
-    color: #2601FF;
+    color: #e4e2e2;
     background-color:rgba(153, 205, 50, 0);
+    font-size: 28px
+    ;
 }
 
 h1,h2,h3,h4,h5,h6{
-    color: blue;
+    color: rgb(0, 0, 0);
     background-color: rgba(184, 180, 125, 0);
+    font-size: 35px;
 }
 
 body{
-    background-color: #c5bebe;
-background-image: url(Midias/OIP.webp);
+    background-color: #4e4d4d;
+background-image: url(Midias/8.jpg);
 /* background-repeat: no-repeat;
 background-size: cover; */
 background-attachment: fixed;
+
 }
+
+@font-face {
+    font-family: Mostoles;
+    src: url(Fontes/Mostoles\ Nightmare.ttf);
+}
+p {
+    font-family: Mostoles;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Permanent Marker;
+
+}
+
+h1 { text-shadow: ;}
+
+
