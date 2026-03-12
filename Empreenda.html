@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<title>HELP - Plataforma de Serviços</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+background:#eef0f3;
+font-family:Segoe UI, sans-serif;
+}
+
+/* container principal */
+
+.main-wrapper{
+margin:auto;
+background:white;
+overflow:hidden;
+box-shadow:0 25px 60px rgba(0,0,0,0.15);
+}
+
+/* navbar */
+
+.navbar{
+background:linear-gradient(90deg,#0f1f3c,#243f69);
+padding:18px 30px;
+}
+
+.navbar-brand{
+color: #d5d5d5; 
+font-weight:700;
+font-size:22px;
+}
+
+.btn-outline-light{
+    border:none
+}
+
+.nav-link{
+color:white !important;
+margin-right:25px;
+}
+
+.btn-login{
+background:#d5d5d5 !important;
+color:#000 !important;
+border:1px solid #d5d5d5 !important;
+transition:0.3s;
+}
+
+.btn-login:hover{
+background:#d5d5d5 !important;
+border:1px solid #d5d5d5 !important;
+color:#000 !important;
+}
+.btn-gold{
+background:linear-gradient(90deg,#cfa25a,#b8893e);
+border:none;
+color:white;
+}
+
+/* hero */
+
+.hero{
+padding:60px 70px;
+}
+
+.hero h1{
+font-weight:700;
+font-size:42px;
+margin-bottom:15px;
+}
+
+.hero p{
+color:#6b7280;
+max-width:420px;
+}
+
+.hero img{
+width:850px;
+max-width:100%;
+height:auto;
+}
+
+/* busca */
+
+.search-box{
+margin-top:30px;
+background:#d5d5d5;
+border-radius:12px;
+padding:25px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+.search-tabs button{
+border:none;
+background:none;
+font-weight:600;
+margin-right:15px;
+}
+
+.search-tabs .active{
+background:#1f2f4f;
+color:#d5d5d5;
+padding:10px 20px;
+border-radius:8px;
+}
+
+/* vagas */
+
+.section{
+padding:40px 70px;
+}
+
+.job-card{
+border:none;
+border-radius:12px;
+padding:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.job-icon{
+font-size:26px;
+margin-right:10px;
+}
+
+/* categorias */
+
+.category{
+text-align:center;
+}
+
+.category-icon{
+width:70px;
+height:70px;
+background:#d5d5d5;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:auto;
+margin-bottom:10px;
+font-size:28px;
+}
+
+/* why */
+
+.why{
+background:#f8f9fb;
+padding:60px 70px;
+}
+
+.check{
+color:#cfa25a;
+font-weight:bold;
+}
+
+/* footer */
+
+footer{
+background:linear-gradient(90deg,#0f1f3c,#243f69);
+color:white;
+padding:50px 70px;
+}
+
+footer a{
+color:#d1d5db;
+text-decoration:none;
+display:block;
+margin-bottom:6px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-wrapper">
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg">
+<img src="Midias/ChatGPT Image 11 de mar. de 2026, 11_04_42.png" alt="Logo HELP" width="100">
+<a class="navbar-brand">HELP</a>
+
+<div class="ms-auto">
+
+<button class="btn btn-outline-light">Início</button>
+<button class="btn btn-outline-light">Vagas</button>
+<button class="btn btn-outline-light">Prestadores</button>
+<button class="btn btn-outline-light">Sobre</button>
+
+<button class="btn btn-login ms-3">Entrar</button>
+<button class="btn btn-gold ms-2">Cadastrar-se</button>
+
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<div class="hero row align-items-center">
+
+<div class="col-lg-6">
+
+<h1>
+Encontre Empregos<br>
+ou Preste Serviços
+</h1>
+
+<p>
+Conecte-se com oportunidades de trabalho nas melhores empresas ou ofereça seus serviços.
+</p>
+
+<div class="search-box">
+
+<div class="search-tabs mb-3">
+
+<button class="active">Buscar vagas</button>
+<button>Prestar serviços</button>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-4">
+<select class="form-select">
+<option>Geral</option>
+<option>Administração</option>
+<option>Tecnologia</option>
+<option>Construção</option>
+<option>Área de trabalho</option>
+<option>Limpeza</option>
+<option>Manutenção</option>
+<option>Automotivo</option>
+</select>
+</div>
+
+<div class="col-md-5">
+<input class="form-control" placeholder="Buscar...">
+
+</div>
+
+<div class="col-md-3">
+<button class="btn btn-gold w-100">Buscar</button>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-6 text-center">
+
+<img src="Midias/HELP_PNG.png.png" width="" >
+
+</div>
+
+</div>
+
+
+<!-- VAGAS -->
+
+<div class="section">
+
+<h4 class="mb-4">Vagas Recentes</h4>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<div class="job-card">
+
+<h6>Auxiliar Administrativo</h6>
+
+<p class="text-muted">
+Fortaleza • Empresa ABC
+</p>
+
+<p>$300 - $700 / mês</p>
+
+<button class="btn btn-gold btn-sm">Ver Detalhes</button>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="job-card">
+
+<h6>Eletricista</h6>
+
+<p class="text-muted">
+São Paulo • Empresa XYZ
+</p>
+
+<p>$500 - $1200 / mês</p>
+
+<button class="btn btn-gold btn-sm">Ver Detalhes</button>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="job-card">
+
+<h6>Faxineira</h6>
+
+<p class="text-muted">
+Rio de Janeiro • Residencial
+</p>
+
+<p>$200 - $500</p>
+
+<button class="btn btn-gold btn-sm">Ver Detalhes</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CATEGORIAS -->
+
+<div class="section">
+
+<h4 class="mb-4">Categorias Populares</h4>
+
+<div class="row">
+
+<div class="col category">
+<div class="category-icon">💼</div>
+Geral
+</div>
+
+<div class="col category">
+<div class="category-icon">🧹</div>
+Limpeza
+</div>
+
+<div class="col category">
+<div class="category-icon">🔧</div>
+Manutenção
+</div>
+
+<div class="col category">
+<div class="category-icon">🛠️</div>
+Construção
+</div>
+
+<div class="col category">
+<div class="category-icon">💻</div>
+Tecnologia
+</div>
+
+<div class="col category">
+<div class="category-icon">🏢</div>
+Administração
+</div>
+
+</div>
+
+</div>
+
+
+<!-- WHY -->
+
+<div class="why row align-items-center">
+
+<div class="col-lg-6">
+
+<h3>Por que usar o HELP?</h3>
+
+<p><span class="check">✔</span> Confiança — profissionais verificados</p>
+
+<p><span class="check">✔</span> Praticidade — encontre serviços rapidamente</p>
+
+<p><span class="check">✔</span> Segurança — plataforma protegida</p>
+
+<button class="btn btn-gold mt-3">
+Começar Agora
+</button>
+
+</div>
+
+<div class="col-lg-6 text-center">
+
+<img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" width="300">
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<h5>HELP</h5>
+
+<p>
+Plataforma que conecta profissionais
+com empresas e clientes.
+</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h6>Navegação</h6>
+
+<a>Início</a>
+<a>Vagas</a>
+<a>Prestadores</a>
+
+</div>
+
+<div class="col-md-3">
+
+<h6>Ajuda</h6>
+
+<a>Suporte</a>
+<a>Termos</a>
+<a>Privacidade</a>
+
+</div>
+
+<div class="col-md-2">
+
+<h6>Contato</h6>
+
+<p>(11) 99999-9999</p>
+
+</div>
+
+</div>
+
+</footer>
+
+</div>
+
+</body>
+</html>
