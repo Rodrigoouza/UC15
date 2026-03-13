@@ -13,14 +13,13 @@
 body{
 background:#eef0f3;
 font-family:Segoe UI, sans-serif;
+margin:0;
 }
 
-/* container principal */
+/* container */
 
 .main-wrapper{
-margin:auto;
 background:white;
-overflow:hidden;
 box-shadow:0 25px 60px rgba(0,0,0,0.15);
 }
 
@@ -31,20 +30,14 @@ background:linear-gradient(90deg,#0f1f3c,#243f69);
 padding:18px 30px;
 }
 
-.navbar-brand{
-color:white !important;
-font-weight:700;
-font-size:22px;
-}
-
-.nav-link{
-color:white !important;
-margin-right:25px;
+.navbar button{
+color:#d5d5d5;
+border:none;
 }
 
 .btn-login{
-border:1px solid rgba(255, 255, 255, 0.4);
-color:rgb(255, 255, 255);
+background:#d5d5d5 !important;
+color:#000 !important;
 }
 
 .btn-gold{
@@ -62,7 +55,6 @@ padding:60px 70px;
 .hero h1{
 font-weight:700;
 font-size:42px;
-margin-bottom:15px;
 }
 
 .hero p{
@@ -70,29 +62,37 @@ color:#6b7280;
 max-width:420px;
 }
 
-dd////
+.hero img{
+width:100%;
+max-width:600px;
+}
+
 /* busca */
 
 .search-box{
 margin-top:30px;
-background:;
+background:#d5d5d5;
 border-radius:12px;
 padding:25px;
-box-shadow:0 8px 20px rgba(0,0,0,0.05);
 }
 
-.search-tabs button{
+.search-tabs{
+display:flex;
+gap:10px;
+margin-bottom:15px;
+}
+
+.btn-tab{
+background:#eee;
 border:none;
-background:none;
-font-weight:600;
-margin-right:15px;
-}
-
-.search-tabs .active{
-background:#1f2f4f;
-color:white;
 padding:10px 20px;
 border-radius:8px;
+font-weight:600;
+}
+
+.btn-tab.active{
+background:#212B40;
+color:#d5d5d5;
 }
 
 /* vagas */
@@ -108,21 +108,21 @@ padding:20px;
 box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
-.job-icon{
-font-size:26px;
-margin-right:10px;
-}
-
 /* categorias */
 
 .category{
 text-align:center;
 }
 
+.category a{
+text-decoration:none;
+color:#000;
+}
+
 .category-icon{
 width:70px;
 height:70px;
-background:#f1f1f1;
+background:#d5d5d5;
 border-radius:50%;
 display:flex;
 align-items:center;
@@ -130,6 +130,12 @@ justify-content:center;
 margin:auto;
 margin-bottom:10px;
 font-size:28px;
+transition:0.2s;
+}
+
+.category a:hover .category-icon{
+background:#A97E3A;
+color:white;
 }
 
 /* why */
@@ -163,6 +169,7 @@ margin-bottom:6px;
 
 </head>
 
+
 <body>
 
 <div class="main-wrapper">
@@ -171,26 +178,30 @@ margin-bottom:6px;
 
 <nav class="navbar navbar-expand-lg">
 
-<a class="navbar-brand">HELP</a>
+<a href="Empreenda.html">
+<img src="Midias/Logo full branca.png" width="150">
+</a>
 
 <div class="ms-auto">
 
-<a class="nav-link d-inline">Início</a>
-<a class="nav-link d-inline">Vagas</a>
-<a class="nav-link d-inline">Prestadores</a>
-<a class="nav-link d-inline">Sobre</a>
+<button class="btn">Início</button>
+<button class="btn">Vagas</button>
+<button class="btn">Prestadores</button>
+<button class="btn">Sobre</button>
 
 <button class="btn btn-login ms-3">Entrar</button>
 <button class="btn btn-gold ms-2">Cadastrar-se</button>
 
 </div>
-z
+
 </nav>
 
 
 <!-- HERO -->
 
-<div class="hero row align-items-center">
+<div class="hero container">
+
+<div class="row align-items-center">
 
 <div class="col-lg-6">
 
@@ -205,41 +216,68 @@ Conecte-se com oportunidades de trabalho nas melhores empresas ou ofereça seus 
 
 <div class="search-box">
 
-<div class="search-tabs mb-3">
+<div class="search-tabs">
 
-<button class="active">Buscar vagas</button>
-<button>Prestar serviços</button>
+<a href="Empreenda_home.html">
+<button class="btn-tab active">Buscar vagas</button>
+</a>
+
+<a href="empreenda_Prestar.html">
+<button class="btn-tab ">Prestar serviços</button>
+</a>
 
 </div>
+
+<form action="empreenda_pg_tecnologia.html" method="GET">
+
 
 <div class="row">
 
 <div class="col-md-4">
-<select class="form-select">
-<option>Área de trabalho</option>
-<option>Administração</option>
-<option>Tecnologia</option>
-<option>Construção</option>
+
+<select name="categoria" class="form-select">
+
+<option value="geral">Geral</option>
+<option value="administracao">Administração</option>
+<option value="tecnologia">Tecnologia</option>
+<option value="construcao">Construção</option>
+<option value="limpeza">Limpeza</option>
+<option value="manutencao">Manutenção</option>
+<option value="automotivo">Automotivo</option>
+
 </select>
+
 </div>
 
 <div class="col-md-5">
-<input class="form-control" placeholder="Digite sua localização">
+
+<input 
+type="text"
+name="busca"
+class="form-control"
+placeholder="Buscar serviço ou profissional...">
+
 </div>
 
 <div class="col-md-3">
-<button class="btn btn-gold w-100">Buscar</button>
+
+<button type="submit" class="btn btn-gold w-100">
+Buscar
+</button>
+
 </div>
 
 </div>
+
+</form>
 
 </div>
 
 </div>
 
 <div class="col-lg-6 text-center">
-
-<img src="Midias/HELP_PNG.png.png" width="" >
+<img src="Midias/HELP_PNG.png.png">
+</div>
 
 </div>
 
@@ -248,7 +286,7 @@ Conecte-se com oportunidades de trabalho nas melhores empresas ou ofereça seus 
 
 <!-- VAGAS -->
 
-<div class="section">
+<div class="section container">
 
 <h4 class="mb-4">Vagas Recentes</h4>
 
@@ -263,8 +301,6 @@ Conecte-se com oportunidades de trabalho nas melhores empresas ou ofereça seus 
 <p class="text-muted">
 Fortaleza • Empresa ABC
 </p>
-
-<p>$300 - $700 / mês</p>
 
 <button class="btn btn-gold btn-sm">Ver Detalhes</button>
 
@@ -282,8 +318,6 @@ Fortaleza • Empresa ABC
 São Paulo • Empresa XYZ
 </p>
 
-<p>$500 - $1200 / mês</p>
-
 <button class="btn btn-gold btn-sm">Ver Detalhes</button>
 
 </div>
@@ -300,8 +334,6 @@ São Paulo • Empresa XYZ
 Rio de Janeiro • Residencial
 </p>
 
-<p>$200 - $500</p>
-
 <button class="btn btn-gold btn-sm">Ver Detalhes</button>
 
 </div>
@@ -315,40 +347,52 @@ Rio de Janeiro • Residencial
 
 <!-- CATEGORIAS -->
 
-<div class="section">
+<div class="section container">
 
 <h4 class="mb-4">Categorias Populares</h4>
 
 <div class="row">
 
 <div class="col category">
+<a href="geral.html">
 <div class="category-icon">💼</div>
 Geral
+</a>
 </div>
 
 <div class="col category">
+<a href="limpeza.html">
 <div class="category-icon">🧹</div>
 Limpeza
+</a>
 </div>
 
 <div class="col category">
+<a href="manutencao.html">
 <div class="category-icon">🔧</div>
 Manutenção
+</a>
 </div>
 
 <div class="col category">
-<div class="category-icon">🏗</div>
+<a href="construcao.html">
+<div class="category-icon">🛠️</div>
 Construção
+</a>
 </div>
 
 <div class="col category">
+<a href="tecnologia.html">
 <div class="category-icon">💻</div>
 Tecnologia
+</a>
 </div>
 
 <div class="col category">
+<a href="administracao.html">
 <div class="category-icon">🏢</div>
 Administração
+</a>
 </div>
 
 </div>
@@ -358,16 +402,16 @@ Administração
 
 <!-- WHY -->
 
-<div class="why row align-items-center">
+<div class="why container">
+
+<div class="row align-items-center">
 
 <div class="col-lg-6">
 
 <h3>Por que usar o HELP?</h3>
 
 <p><span class="check">✔</span> Confiança — profissionais verificados</p>
-
 <p><span class="check">✔</span> Praticidade — encontre serviços rapidamente</p>
-
 <p><span class="check">✔</span> Segurança — plataforma protegida</p>
 
 <button class="btn btn-gold mt-3">
@@ -377,8 +421,8 @@ Começar Agora
 </div>
 
 <div class="col-lg-6 text-center">
-
 <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" width="300">
+</div>
 
 </div>
 
@@ -389,6 +433,8 @@ Começar Agora
 
 <footer>
 
+<div class="container">
+
 <div class="row">
 
 <div class="col-md-4">
@@ -396,8 +442,7 @@ Começar Agora
 <h5>HELP</h5>
 
 <p>
-Plataforma que conecta profissionais
-com empresas e clientes.
+Plataforma que conecta profissionais com empresas e clientes.
 </p>
 
 </div>
@@ -406,9 +451,9 @@ com empresas e clientes.
 
 <h6>Navegação</h6>
 
-<a>Início</a>
-<a>Vagas</a>
-<a>Prestadores</a>
+<a href="#">Início</a>
+<a href="#">Vagas</a>
+<a href="#">Prestadores</a>
 
 </div>
 
@@ -416,9 +461,9 @@ com empresas e clientes.
 
 <h6>Ajuda</h6>
 
-<a>Suporte</a>
-<a>Termos</a>
-<a>Privacidade</a>
+<a href="#">Suporte</a>
+<a href="#">Termos</a>
+<a href="#">Privacidade</a>
 
 </div>
 
@@ -427,6 +472,8 @@ com empresas e clientes.
 <h6>Contato</h6>
 
 <p>(11) 99999-9999</p>
+
+</div>
 
 </div>
 

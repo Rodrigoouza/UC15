@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>HELP - Prestar Serviços</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body{
+      background:#eef0f3;
+      font-family:Segoe UI, sans-serif;
+      margin:0;
+      padding:0;
+    }
+
+    .main-wrapper{
+      margin:auto;
+      background:white;
+      overflow:hidden;
+      box-shadow:0 25px 60px rgba(0,0,0,0.15);
+    }
+
+    .navbar{
+      background:linear-gradient(90deg,#0f1f3c,#243f69);
+      padding:18px 30px;
+    }
+
+    .btn-outline-light{
+      border:none;
+      color:#d5d5d5;
+    }
+
+    .btn-outline-light:hover{
+      color:#ffffff;
+      background:transparent;
+    }
+
+    .btn-login{
+      background:#d5d5d5 !important;
+      color:#000 !important;
+      border:1px solid #d5d5d5 !important;
+      transition:0.3s;
+    }
+
+    .btn-login:hover{
+      background:#d5d5d5 !important;
+      border:1px solid #d5d5d5 !important;
+      color:#000 !important;
+    }
+
+    .btn-gold{
+      background:linear-gradient(90deg,#cfa25a,#b8893e);
+      border:none;
+      color:white;
+    }
+
+    .btn-gold:hover{
+      opacity:0.95;
+      color:white;
+    }
+
+    .hero{
+      padding:60px 70px;
+    }
+
+    .hero h1{
+      font-weight:700;
+      font-size:42px;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      color:#6b7280;
+      max-width:500px;
+    }
+
+    .search-box{
+      margin-top:30px;
+      background:#d5d5d5;
+      border-radius:12px;
+      padding:30px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .search-tabs{
+      display:flex;
+      gap:10px;
+      margin-bottom:25px;
+    }
+
+    .search-tabs a{
+      text-decoration:none;
+    }
+
+    .search-tabs button{
+      border:none;
+      font-weight:600;
+      padding:10px 20px;
+      border-radius:8px;
+      transition:0.3s;
+    }
+
+    .btn-tab{
+      background:#f3f3f3;
+      color:#212b40;
+    }
+
+    .btn-tab:hover{
+      background:#cfcfcf;
+    }
+
+    .btn-tab.active{
+      background:#212b40;
+      color:#d5d5d5;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .card-cadastro{
+      border:none;
+      border-radius:14px;
+      max-width:100%;
+    }
+
+    .card-header{
+      background:#212b40;
+      color:#d5d5d5;
+      border-radius:14px 14px 0 0 !important;
+      border:none;
+      padding:18px;
+    }
+
+    .card-body{
+      padding:25px;
+    }
+
+    #descricaoServico{
+      width:100%;
+      min-height:110px;
+      resize:none;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #ced4da;
+      font-family:Segoe UI, sans-serif;
+    }
+
+    .lado-imagem{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100%;
+    }
+
+    .lado-imagem img{
+      max-width:100%;
+      width:420px;
+      height:auto;
+    }
+
+    .section{
+      padding:40px 70px;
+    }
+
+    .job-card{
+      border:none;
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      background:#fff;
+    }
+
+    .category{
+      text-align:center;
+    }
+
+    .category-icon{
+      width:70px;
+      height:70px;
+      background:#d5d5d5;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:auto;
+      margin-bottom:10px;
+      font-size:28px;
+    }
+
+    .why{
+      background:#f8f9fb;
+      padding:60px 70px;
+    }
+
+    .check{
+      color:#cfa25a;
+      font-weight:bold;
+    }
+
+    footer{
+      background:linear-gradient(90deg,#0f1f3c,#243f69);
+      color:white;
+      padding:50px 70px;
+    }
+
+    footer a{
+      color:#d1d5db;
+      text-decoration:none;
+      display:block;
+      margin-bottom:6px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <a href="Empreenda.html">
+      <img src="Midias/Logo full branca.png" width="150" alt="Logo HELP">
+    </a>
+
+    <div class="ms-auto">
+      <button class="btn btn-outline-light">Início</button>
+      <button class="btn btn-outline-light">Vagas</button>
+      <button class="btn btn-outline-light">Prestadores</button>
+      <button class="btn btn-outline-light">Sobre</button>
+
+      <button class="btn btn-login ms-3">Entrar</button>
+      <button class="btn btn-gold ms-2">Cadastrar-se</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Encontre Empregos<br>ou Preste Serviços</h1>
+
+    <p>
+      Conecte-se com oportunidades de trabalho nas melhores empresas
+      ou ofereça seus serviços.
+    </p>
+
+    <div class="search-box">
+
+      <!-- BOTÕES -->
+      <div class="search-tabs">
+        <a href="Empreenda_home.html">
+          <button class="btn-tab">Buscar vagas</button>
+        </a>
+
+        <a href="empreenda_Prestar.html">
+          <button class="btn-tab active">Prestar serviços</button>
+        </a>
+      </div>
+
+      <!-- FORMULÁRIO + IMAGEM -->
+      <div class="row align-items-center justify-content-center g-4">
+
+        <div class="col-lg-7">
+          <div class="card shadow card-cadastro">
+            <div class="card-header text-center">
+              <h4 class="mb-0">Cadastro de Prestador de Serviço</h4>
+            </div>
+
+            <div class="card-body">
+              <form>
+                <div class="mb-3">
+                  <label class="form-label">Nome Completo</label>
+                  <input type="text" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">E-mail</label>
+                  <input type="email" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Telefone</label>
+                  <input type="text" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">CPF ou CNPJ</label>
+                  <input type="text" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Tipo de serviço</label>
+                  <select class="form-select">
+                    <option>Selecione</option>
+                    <option>Eletricista</option>
+                    <option>Encanador</option>
+                    <option>Construção</option>
+                    <option>Limpeza</option>
+                    <option>Informática</option>
+                    <option>Outros</option>
+                    <option>Geral</option>
+                    <option>Administração</option>
+                    <option>Manutenção</option>
+                    <option>Podologia</option>
+                    <option>Educação</option>
+                    <option>Jardinagem</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Cidade</label>
+                  <select class="form-select">
+                    <option selected>Selecione</option>
+                    <option>São Paulo</option>
+                    <option>Rio de Janeiro</option>
+                    <option>Brasília</option>
+                    <option>Salvador</option>
+                    <option>Fortaleza</option>
+                    <option>Belo Horizonte</option>
+                    <option>Manaus</option>
+                    <option>Curitiba</option>
+                    <option>Recife</option>
+                    <option>Porto Alegre</option>
+                    <option>Goiânia</option>
+                    <option>Belém</option>
+                    <option>Guarulhos</option>
+                    <option>Campinas</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Valor por hora</label>
+                  <input type="text" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Descreva seu serviço</label>
+                  <textarea
+                    id="descricaoServico"
+                    placeholder="Descreva seu serviço..."
+                    oninput="autoResize(this)"
+                  ></textarea>
+                </div>
+
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-gold">
+                    Postar Serviço
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="lado-imagem">
+            <img src="Midias/HELP_PNG.png.png" alt="Ilustração HELP">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- VAGAS -->
+  <div class="section">
+    <h4 class="mb-4">Vagas Recentes</h4>
+
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="job-card">
+          <h6>Auxiliar Administrativo</h6>
+          <p class="text-muted">Fortaleza • Empresa ABC</p>
+          <button class="btn btn-gold btn-sm">Ver Detalhes</button>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="job-card">
+          <h6>Eletricista</h6>
+          <p class="text-muted">São Paulo • Empresa XYZ</p>
+          <button class="btn btn-gold btn-sm">Ver Detalhes</button>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="job-card">
+          <h6>Faxineira</h6>
+          <p class="text-muted">Rio de Janeiro • Residencial</p>
+          <button class="btn btn-gold btn-sm">Ver Detalhes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIAS -->
+  <div class="section">
+    <h4 class="mb-4">Categorias Populares</h4>
+
+    <div class="row">
+      <div class="col category">
+        <div class="category-icon">💼</div>
+        Geral
+      </div>
+
+      <div class="col category">
+        <div class="category-icon">🧹</div>
+        Limpeza
+      </div>
+
+      <div class="col category">
+        <div class="category-icon">🔧</div>
+        Manutenção
+      </div>
+
+      <div class="col category">
+        <div class="category-icon">🛠️</div>
+        Construção
+      </div>
+
+      <div class="col category">
+        <div class="category-icon">💻</div>
+        Tecnologia
+      </div>
+
+      <div class="col category">
+        <div class="category-icon">🏢</div>
+        Administração
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY -->
+  <div class="why row align-items-center">
+    <div class="col-lg-6">
+      <h3>Por que usar o HELP?</h3>
+
+      <p><span class="check">✔</span> Confiança — profissionais verificados</p>
+      <p><span class="check">✔</span> Praticidade — encontre serviços rapidamente</p>
+      <p><span class="check">✔</span> Segurança — plataforma protegida</p>
+
+      <button class="btn btn-gold mt-3">Começar Agora</button>
+    </div>
+
+    <div class="col-lg-6 text-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" width="300" alt="Ilustração">
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="row">
+      <div class="col-md-4">
+        <h5>HELP</h5>
+        <p>Plataforma que conecta profissionais com empresas e clientes.</p>
+      </div>
+
+      <div class="col-md-3">
+        <h6>Navegação</h6>
+        <a href="#">Início</a>
+        <a href="#">Vagas</a>
+        <a href="#">Prestadores</a>
+      </div>
+
+      <div class="col-md-3">
+        <h6>Ajuda</h6>
+        <a href="#">Suporte</a>
+        <a href="#">Termos</a>
+        <a href="#">Privacidade</a>
+      </div>
+
+      <div class="col-md-2">
+        <h6>Contato</h6>
+        <p>(11) 99999-9999</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  function autoResize(textarea){
+    textarea.style.height = "auto";
+    textarea.style.height = textarea.scrollHeight + "px";
+  }
+</script>
+
+</body>
+</html>

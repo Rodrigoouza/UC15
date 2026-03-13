@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HELP - Construção</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body{
+      background:#eef0f3;
+      font-family:Segoe UI, sans-serif;
+      margin:0;
+      padding:0;
+    }
+
+    .main-wrapper{
+      background:white;
+      box-shadow:0 25px 60px rgba(0,0,0,0.15);
+    }
+
+    .navbar{
+      background:linear-gradient(90deg,#0f1f3c,#243f69);
+      padding:18px 30px;
+    }
+
+    .navbar .btn{
+      color:#d5d5d5;
+      border:none;
+    }
+
+    .btn-login{
+      background:#d5d5d5 !important;
+      color:#000 !important;
+      border:1px solid #d5d5d5 !important;
+    }
+
+    .btn-login:hover{
+      background:#d5d5d5 !important;
+      color:#000 !important;
+      border:1px solid #d5d5d5 !important;
+    }
+
+    .btn-gold{
+      background:linear-gradient(90deg,#cfa25a,#b8893e);
+      border:none;
+      color:white;
+    }
+
+    .btn-gold:hover{
+      color:white;
+      opacity:.95;
+    }
+
+    .hero{
+      padding:60px 70px 40px;
+      background:linear-gradient(180deg,#f8f9fb,#ffffff);
+    }
+
+    .hero h1{
+      font-size:42px;
+      font-weight:700;
+      color:#212B40;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      color:#6b7280;
+      max-width:560px;
+      font-size:17px;
+    }
+
+    .hero-badge{
+      display:inline-block;
+      background:#d5d5d5;
+      color:#212B40;
+      padding:8px 16px;
+      border-radius:999px;
+      font-weight:600;
+      margin-bottom:20px;
+    }
+
+    .hero img{
+      width:100%;
+      max-width:420px;
+      height:auto;
+    }
+
+    .search-box{
+      margin-top:30px;
+      background:#d5d5d5;
+      border-radius:14px;
+      padding:25px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .section{
+      padding:50px 70px;
+    }
+
+    .section-title{
+      color:#212B40;
+      font-weight:700;
+      margin-bottom:25px;
+    }
+
+    .filter-chip{
+      display:inline-block;
+      background:#eef0f3;
+      color:#212B40;
+      padding:10px 16px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:600;
+      margin-right:10px;
+      margin-bottom:10px;
+      transition:.2s;
+    }
+
+    .filter-chip:hover,
+    .filter-chip.active{
+      background:#212B40;
+      color:#d5d5d5;
+    }
+
+    .service-card{
+      background:white;
+      border:none;
+      border-radius:16px;
+      padding:22px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      height:100%;
+      transition:.25s;
+    }
+
+    .service-card:hover{
+      transform:translateY(-4px);
+    }
+
+    .service-icon{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:#d5d5d5;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      margin-bottom:15px;
+    }
+
+    .service-card h5{
+      color:#212B40;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .service-card p{
+      color:#6b7280;
+      font-size:15px;
+      margin-bottom:18px;
+    }
+
+    .profile-card{
+      background:white;
+      border:none;
+      border-radius:16px;
+      padding:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      height:100%;
+    }
+
+    .profile-top{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:15px;
+    }
+
+    .profile-avatar{
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      background:#212B40;
+      color:#d5d5d5;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      font-size:18px;
+    }
+
+    .profile-card h6{
+      margin:0;
+      font-weight:700;
+      color:#212B40;
+    }
+
+    .profile-role{
+      color:#A97E3A;
+      font-weight:600;
+      font-size:14px;
+    }
+
+    .profile-card p{
+      color:#6b7280;
+      font-size:14px;
+      margin-bottom:12px;
+    }
+
+    .tag{
+      display:inline-block;
+      background:#eef0f3;
+      color:#212B40;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:13px;
+      margin-right:8px;
+      margin-bottom:8px;
+    }
+
+    .highlight-box{
+      background:#212B40;
+      color:#d5d5d5;
+      border-radius:18px;
+      padding:35px;
+    }
+
+    .highlight-box h3{
+      font-weight:700;
+      margin-bottom:15px;
+    }
+
+    .highlight-box p{
+      color:#e7e7e7;
+      margin-bottom:18px;
+    }
+
+    .benefit-item{
+      margin-bottom:12px;
+      font-size:15px;
+    }
+
+    footer{
+      background:linear-gradient(90deg,#0f1f3c,#243f69);
+      color:white;
+      padding:50px 70px;
+    }
+
+    footer a{
+      color:#d1d5db;
+      text-decoration:none;
+      display:block;
+      margin-bottom:6px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <a href="Empreenda_home.html">
+      <img src="Midias/Logo full branca.png" width="150" alt="Logo HELP">
+    </a>
+
+    <div class="ms-auto">
+      <a href="Empreenda_home.html" class="btn">Início</a>
+      <a href="Empreenda_home.html" class="btn">Vagas</a>
+      <a href="prestadores.html" class="btn">Prestadores</a>
+      <a href="sobre.html" class="btn">Sobre</a>
+
+      <button class="btn btn-login ms-3">Entrar</button>
+      <button class="btn btn-gold ms-2">Cadastrar-se</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero container-fluid">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <span class="hero-badge">Categoria • Tecnologia</span>
+        <h1>Serviços de Tecnologia para empresas e clientes</h1>
+        <p>
+          Encontre profissionais de tecnologia para suporte técnico, manutenção,
+          desenvolvimento, redes, design, infraestrutura e muito mais dentro da
+          plataforma HELP.
+        </p>
+
+        <div class="search-box">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <select class="form-select">
+                <option selected>Tipo de serviço</option>
+                <option>Suporte Técnico</option>
+                <option>Desenvolvimento Web</option>
+                <option>Infraestrutura</option>
+                <option>Redes</option>
+                <option>Design UI/UX</option>
+                <option>Segurança da Informação</option>
+              </select>
+            </div>
+
+            <div class="col-md-5">
+              <input type="text" class="form-control" placeholder="Buscar profissional ou serviço...">
+            </div>
+
+            <div class="col-md-3">
+              <button class="btn btn-gold w-100">Buscar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5 text-center mt-4 mt-lg-0">
+        <img src="Midias/HELP_PNG.png.png" alt="Tecnologia HELP">
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTROS -->
+  <section class="section container-fluid">
+    <h3 class="section-title">Áreas de Construção</h3>
+
+    <a href="#" class="filter-chip active">Todos</a>
+    <a href="#" class="filter-chip">Serralharia</a>
+    <a href="#" class="filter-chip">Construção Civil</a>
+    <a href="#" class="filter-chip">Eletricidade</a>
+    <a href="#" class="filter-chip">Hidráulica</a>
+    <a href="#" class="filter-chip">Pintura</a>
+    <a href="#" class="filter-chip">Alvenaria</a>
+  </section>
+
+  <!-- SERVIÇOS EM DESTAQUE -->
+  <section class="section container-fluid pt-0">
+    <h3 class="section-title">Serviços em destaque</h3>
+
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">🛠️</div>
+          <h5>Suporte Técnico</h5>
+          <p>
+            Atendimento para manutenção de computadores, notebooks, instalação
+            de programas, configuração de sistemas e suporte remoto.
+          </p>
+          <button class="btn btn-gold">Ver profissionais</button>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="service-card">
+          <div class="service-icon"></div>
+          <h5>Desenvolvimento Web</h5>
+          <p>
+            Criação de sites, landing pages, sistemas web, páginas institucionais
+            e soluções digitais para negócios de todos os tamanhos.
+          </p>
+          <button class="btn btn-gold">Ver profissionais</button>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">🔒</div>
+          <h5>Segurança Digital</h5>
+          <p>
+            Serviços voltados para proteção de dados, boas práticas de segurança,
+            configuração segura de sistemas e orientação preventiva.
+          </p>
+          <button class="btn btn-gold">Ver profissionais</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFISSIONAIS -->
+  <section class="section container-fluid pt-0">
+    <h3 class="section-title">Profissionais disponíveis</h3>
+
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="profile-card">
+          <div class="profile-top">
+            <div class="profile-avatar">RS</div>
+            <div>
+              <h6>Rodrigo Silva</h6>
+              <div class="profile-role">Suporte Técnico</div>
+            </div>
+          </div>
+
+          <p>
+            Atendimento para manutenção, formatação, instalação de programas,
+            upgrades e suporte para pequenas empresas.
+          </p>
+
+          <span class="tag">Windows</span>
+          <span class="tag">Redes</span>
+          <span class="tag">Manutenção</span>
+
+          <div class="mt-3">
+            <button class="btn btn-gold btn-sm">Solicitar orçamento</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="profile-card">
+          <div class="profile-top">
+            <div class="profile-avatar">AM</div>
+            <div>
+              <h6>Ana Martins</h6>
+              <div class="profile-role">Desenvolvedora Front-end</div>
+            </div>
+          </div>
+
+          <p>
+            Criação de interfaces modernas, páginas responsivas, sites institucionais
+            e melhoria de experiência visual para negócios.
+          </p>
+
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Bootstrap</span>
+
+          <div class="mt-3">
+            <button class="btn btn-gold btn-sm">Solicitar orçamento</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="profile-card">
+          <div class="profile-top">
+            <div class="profile-avatar">CF</div>
+            <div>
+              <h6>Carlos Ferreira</h6>
+              <div class="profile-role">Infraestrutura e Redes</div>
+            </div>
+          </div>
+
+          <p>
+            Configuração de redes, roteadores, cabeamento básico, organização
+            de infraestrutura e suporte para escritórios.
+          </p>
+
+          <span class="tag">Infraestrutura</span>
+          <span class="tag">Roteadores</span>
+          <span class="tag">Rede Local</span>
+
+          <div class="mt-3">
+            <button class="btn btn-gold btn-sm">Solicitar orçamento</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER -->
+  <section class="section container-fluid pt-0">
+    <div class="highlight-box">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <h3>Por que contratar serviços de tecnologia pela HELP?</h3>
+          <p>
+            A plataforma conecta clientes e empresas a profissionais preparados
+            para resolver demandas técnicas com mais agilidade, organização e confiança.
+          </p>
+
+          <div class="benefit-item">✔ Profissionais verificados</div>
+          <div class="benefit-item">✔ Atendimento para demandas presenciais e remotas</div>
+          <div class="benefit-item">✔ Busca por categoria e especialidade</div>
+          <div class="benefit-item">✔ Mais praticidade para contratar</div>
+        </div>
+
+        <div class="col-lg-4 text-center mt-4 mt-lg-0">
+          <button class="btn btn-gold btn-lg">Publicar necessidade</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTRAS SUBCATEGORIAS -->
+  <section class="section container-fluid pt-0">
+    <h3 class="section-title">Outras especialidades</h3>
+
+    <div class="row g-4">
+      <div class="col-lg-3">
+        <div class="service-card text-center">
+          <div class="service-icon mx-auto">🖥️</div>
+          <h5>Montagem de PC</h5>
+          <p>Configuração, montagem e upgrades de computadores.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="service-card text-center">
+          <div class="service-icon mx-auto">📡</div>
+          <h5>Redes</h5>
+          <p>Estruturação e manutenção de redes locais e internet.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="service-card text-center">
+          <div class="service-icon mx-auto">🎨</div>
+          <h5>Design</h5>
+          <p>Criação de layouts, identidade visual e interfaces digitais.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="service-card text-center">
+          <div class="service-icon mx-auto">📱</div>
+          <h5>Aplicativos</h5>
+          <p>Desenvolvimento e prototipação de soluções mobile.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>HELP</h5>
+          <p>Plataforma que conecta profissionais com empresas e clientes.</p>
+        </div>
+
+        <div class="col-md-3">
+          <h6>Navegação</h6>
+          <a href="Empreenda.html">Início</a>
+          <a href="Empreenda_home.html">Vagas</a>
+          <a href="prestadores.html">Prestadores</a>
+        </div>
+
+        <div class="col-md-3">
+          <h6>Ajuda</h6>
+          <a href="#">Suporte</a>
+          <a href="#">Termos</a>
+          <a href="#">Privacidade</a>
+        </div>
+
+        <div class="col-md-2">
+          <h6>Contato</h6>
+          <p>(11) 99999-9999</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const busca = params.get("busca");
+
+if(busca){
+
+document.getElementById("tituloBusca").innerText =
+"Resultados para: " + busca;
+
+}
+
+</script>
+
+</html>

@@ -1,2 +1,0 @@
-arquivo 2 criado no VSCode
-test
