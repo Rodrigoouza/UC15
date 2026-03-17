@@ -41,7 +41,50 @@
 <h3>Via arquivo externo</h3>
 <button onclick="exibirMensagem2()">click aqui</button>
 <script>
-    
+    function exibirMensagem2() {
+    document.getElementById('mensagem01').innerText = 'ola mundo via arquivo exerno'
+}
+</script>
+<h2>Alterando um atributo</h2>
+<button onclick="liga()">liga</button>
+<img src="Midias/off.gif" alt="" id="lamp">
+<script>
+    function liga() {
+        document.getElementById('lamp').src = 'Midias/on.gif';
+    }
+</script>
+<button onclick="desliga()">desliga</button>
+<script>
+    function desliga() {
+        document.getElementById('lamp').src = 'Midias/off.gif';
+    }
+</script>
+
+<h3>Alterando a Formatação</h3>
+<button onclick="formata()">vermelho</button>
+<script>
+    function formata() {
+        document.getElementById('titulo').style.color = 'red';
+        document.getElementById('titulo').style.backgroundColor = 'yellow';
+    }
+</script>
+
+<h3>Tema Escuro</h3>
+<button onclick="temaEscuro()">Tema Escuro</button>
+<script>
+    function temaEscuro() {
+        document.body.style.backgroundColor = 'black';
+        document.body.style.color = 'white';
+    }
+</script>
+
+<h3>tema claro</h3>
+<button onclick="temaClaro()">Tema Claro</button>
+<script>
+    function temaClaro() {
+        document.body.style.backgroundColor = 'white';
+        document.body.style.color = 'black';
+    }
 </script>
 </body>
 </html>

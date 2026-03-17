@@ -1,487 +1,760 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HELP - Plataforma de Serviços</title>
 
-<meta charset="UTF-8">
-<title>HELP - Plataforma de Serviços</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --azul-escuro:#212B40;
+      --azul-degrade-1:#0f1f3c;
+      --azul-degrade-2:#243f69;
+      --dourado:#A97E3A;
+      --dourado-claro:#cfa25a;
+      --cinza-claro:#d5d5d5;
+      --fundo:#eef0f3;
+      --branco:#ffffff;
+      --texto:#1f2937;
+    }
 
-<style>
+    body{
+      background:var(--fundo);
+      font-family:Segoe UI, sans-serif;
+      margin:0;
+      color:var(--texto);
+    }
 
-body{
-background:#eef0f3;
-font-family:Segoe UI, sans-serif;
-margin:0;
-}
+    .main-wrapper{
+      background:var(--branco);
+      box-shadow:0 25px 60px rgba(0,0,0,0.15);
+      min-height:100vh;
+    }
 
-/* container */
+    /* NAVBAR */
+    .navbar-help{
+      background:linear-gradient(90deg,var(--azul-degrade-1),var(--azul-degrade-2));
+      padding:18px 30px;
+    }
 
-.main-wrapper{
-background:white;
-box-shadow:0 25px 60px rgba(0,0,0,0.15);
-}
+    .logo-img{
+      width:150px;
+      max-width:100%;
+      height:auto;
+    }
 
-/* navbar */
+    .navbar-help .navbar-nav{
+      display:flex;
+      align-items:center;
+    }
 
-.navbar{
-background:linear-gradient(90deg,#0f1f3c,#243f69);
-padding:18px 30px;
-}
+    .navbar-help .nav-item{
+      list-style:none;
+    }
 
-.navbar button{
-color:#d5d5d5;
-border:none;
-}
+    .navbar-help .nav-link-custom,
+    .navbar-help .btn-nav{
+      color:var(--cinza-claro);
+      border:none;
+      background:transparent;
+      font-weight:600;
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:8px;
+      transition:.25s;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
 
-.btn-login{
-background:#d5d5d5 !important;
-color:#000 !important;
-}
+    .navbar-help .nav-link-custom:hover,
+    .navbar-help .btn-nav:hover{
+      background:rgba(255,255,255,0.08);
+      color:#fff;
+    }
 
-.btn-gold{
-background:linear-gradient(90deg,#cfa25a,#b8893e);
-border:none;
-color:white;
-}
+    .btn-login{
+      background:var(--cinza-claro) !important;
+      color:#000 !important;
+      border:none;
+      font-weight:600;
+      border-radius:10px;
+      padding:10px 18px;
+    }
 
-/* hero */
+    .btn-login:hover{
+      opacity:.95;
+    }
 
-.hero{
-padding:60px 70px;
-}
+    .btn-gold{
+      background:linear-gradient(90deg,var(--dourado-claro),#b8893e);
+      border:none;
+      color:white;
+      font-weight:600;
+      border-radius:10px;
+      padding:10px 18px;
+      transition:.25s;
+    }
 
-.hero h1{
-font-weight:700;
-font-size:42px;
-}
+    .btn-gold:hover{
+      color:white;
+      opacity:.95;
+      transform:translateY(-1px);
+    }
 
-.hero p{
-color:#6b7280;
-max-width:420px;
-}
+    .user-thumb{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid var(--dourado-claro);
+    }
 
-.hero img{
-width:100%;
-max-width:600px;
-}
+    .dropdown-menu{
+      border:none;
+      border-radius:14px;
+      box-shadow:0 16px 35px rgba(0,0,0,0.15);
+      padding:10px;
+      min-width:240px;
+    }
 
-/* busca */
+    .dropdown-item{
+      border-radius:8px;
+      padding:10px 12px;
+    }
 
-.search-box{
-margin-top:30px;
-background:#d5d5d5;
-border-radius:12px;
-padding:25px;
-}
+    .dropdown-item:hover{
+      background:#f3f4f6;
+    }
 
-.search-tabs{
-display:flex;
-gap:10px;
-margin-bottom:15px;
-}
+    /* HERO */
+    .hero{
+      padding:60px 70px;
+    }
 
-.btn-tab{
-background:#eee;
-border:none;
-padding:10px 20px;
-border-radius:8px;
-font-weight:600;
-}
+    .hero h1{
+      font-weight:700;
+      font-size:42px;
+      color:var(--azul-escuro);
+      line-height:1.2;
+    }
 
-.btn-tab.active{
-background:#212B40;
-color:#d5d5d5;
-}
+    .hero p{
+      color:#6b7280;
+      max-width:480px;
+      font-size:16px;
+    }
 
-/* vagas */
+    .hero img{
+      width:100%;
+      max-width:600px;
+    }
 
-.section{
-padding:40px 70px;
-}
+    .search-box{
+      margin-top:30px;
+      background:var(--cinza-claro);
+      border-radius:16px;
+      padding:25px;
+      box-shadow:0 12px 25px rgba(0,0,0,0.08);
+    }
 
-.job-card{
-border:none;
-border-radius:12px;
-padding:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
+    .search-tabs{
+      display:flex;
+      gap:10px;
+      margin-bottom:15px;
+      flex-wrap:wrap;
+    }
 
-/* categorias */
+    .btn-tab{
+      background:#eee;
+      border:none;
+      padding:10px 20px;
+      border-radius:8px;
+      font-weight:600;
+      color:#111827;
+      text-decoration:none;
+      display:inline-block;
+      transition:.25s;
+    }
 
-.category{
-text-align:center;
-}
+    .btn-tab.active{
+      background:var(--azul-escuro);
+      color:var(--cinza-claro);
+    }
 
-.category a{
-text-decoration:none;
-color:#000;
-}
+    .btn-tab:hover{
+      background:var(--azul-escuro);
+      color:var(--cinza-claro);
+    }
 
-.category-icon{
-width:70px;
-height:70px;
-background:#d5d5d5;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-margin:auto;
-margin-bottom:10px;
-font-size:28px;
-transition:0.2s;
-}
+    /* SECTIONS */
+    .section{
+      padding:40px 70px;
+    }
 
-.category a:hover .category-icon{
-background:#A97E3A;
-color:white;
-}
+    .section h4{
+      color:var(--azul-escuro);
+      font-weight:700;
+    }
 
-/* why */
+    .job-card{
+      border:none;
+      border-radius:14px;
+      padding:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      background:#fff;
+      height:100%;
+      transition:.25s;
+    }
 
-.why{
-background:#f8f9fb;
-padding:60px 70px;
-}
+    .job-card:hover{
+      transform:translateY(-3px);
+    }
 
-.check{
-color:#cfa25a;
-font-weight:bold;
-}
+    .job-card h6{
+      color:var(--azul-escuro);
+      font-weight:700;
+    }
 
-/* footer */
+    .category{
+      text-align:center;
+      margin-bottom:20px;
+    }
 
-footer{
-background:linear-gradient(90deg,#0f1f3c,#243f69);
-color:white;
-padding:50px 70px;
-}
+    .category a{
+      text-decoration:none;
+      color:#000;
+      font-weight:600;
+    }
 
-footer a{
-color:#d1d5db;
-text-decoration:none;
-display:block;
-margin-bottom:6px;
-}
+    .category-icon{
+      width:72px;
+      height:72px;
+      background:var(--cinza-claro);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:auto;
+      margin-bottom:10px;
+      font-size:28px;
+      transition:.2s;
+    }
 
-</style>
+    .category a:hover .category-icon{
+      background:var(--dourado);
+      color:white;
+    }
 
+    .why{
+      background:#f8f9fb;
+      padding:60px 70px;
+    }
+
+    .check{
+      color:var(--dourado-claro);
+      font-weight:bold;
+    }
+
+    footer{
+      background:linear-gradient(90deg,var(--azul-degrade-1),var(--azul-degrade-2));
+      color:white;
+      padding:50px 70px;
+    }
+
+    footer a{
+      color:#d1d5db;
+      text-decoration:none;
+      display:block;
+      margin-bottom:6px;
+    }
+
+    footer a:hover{
+      color:#fff;
+    }
+
+    .footer-social a{
+      display:inline-block;
+      margin-right:12px;
+      font-size:20px;
+    }
+
+    @media (max-width: 991px){
+      .hero,
+      .section,
+      .why,
+      footer{
+        padding:35px 20px;
+      }
+
+      .hero h1{
+        font-size:32px;
+      }
+
+      .navbar-help{
+        padding:16px 18px;
+      }
+
+      .navbar-help .collapse .navbar-nav{
+        align-items:flex-start !important;
+        gap:8px !important;
+        margin-top:14px;
+      }
+
+      .navbar-help .nav-item{
+        width:100%;
+      }
+    }
+  </style>
 </head>
-
-
 <body>
 
 <div class="main-wrapper">
 
-<!-- NAVBAR -->
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-help">
+    <div class="container-fluid px-0">
 
-<nav class="navbar navbar-expand-lg">
+      <a href="Pagina_Inicial.html" class="navbar-brand me-3">
+        <img src="Midias/Logo full branca.png" alt="HELP" class="logo-img">
+      </a>
 
-<a href="Empreenda.html">
-<img src="Midias/Logo full branca.png" width="150">
-</a>
+      <button class="navbar-toggler text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHelp" aria-controls="navbarHelp" aria-expanded="false" aria-label="Abrir menu">
+        <i class="bi bi-list fs-2"></i>
+      </button>
 
-<div class="ms-auto">
+      <div class="collapse navbar-collapse" id="navbarHelp">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
 
-<button class="btn">Início</button>
-<button class="btn">Vagas</button>
-<button class="btn">Prestadores</button>
-<button class="btn">Sobre</button>
+          <li class="nav-item">
+            <a href="Pagina_Inicial.html" class="nav-link-custom">Início</a>
+          </li>
 
-<button class="btn btn-login ms-3">Entrar</button>
-<button class="btn btn-gold ms-2">Cadastrar-se</button>
+          <li class="nav-item">
+            <a href="Busca_mobile.html" class="nav-link-custom">Vagas</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="Prestar_Servico.html" class="nav-link-custom">Prestadores</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="Quem_Somos.html" class="nav-link-custom">Sobre</a>
+          </li>
+
+          <li class="nav-item" id="menuLogin">
+            <a href="Login.html" class="btn btn-login ms-lg-3">Entrar</a>
+          </li>
+
+          <li class="nav-item" id="menuCadastro">
+            <a href="Cadastro.html" class="btn btn-gold">Cadastrar-se</a>
+          </li>
+
+          <li class="nav-item dropdown d-none" id="menuUsuario">
+            <a class="btn-nav dropdown-toggle" href="#" id="userMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://via.placeholder.com/34" alt="Usuário" class="user-thumb" id="userMenuFotoMini">
+              <span id="userMenuTexto">Usuário</span>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li class="text-center p-2">
+                <img
+                  id="fotoMenu"
+                  src="https://via.placeholder.com/60"
+                  width="60"
+                  height="60"
+                  style="border-radius:50%;object-fit:cover;border:3px solid #cfa25a;"
+                  alt="Foto do usuário">
+                <br><br>
+                <span id="nomeMenu" class="fw-bold"></span>
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="Usuario.html">Perfil</a></li>
+              <li><a class="dropdown-item text-danger" href="#" onclick="sair()">Sair</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h1>
+          Encontre Empregos<br>
+          ou Preste Serviços
+        </h1>
+
+        <p>
+          Conecte-se com oportunidades de trabalho nas melhores empresas ou ofereça seus serviços de forma prática, moderna e segura dentro da HELP.
+        </p>
+
+        <div class="search-box">
+          <div class="search-tabs">
+            <a href="Busca_mobile.html" class="btn-tab active">Buscar vagas</a>
+            <a href="Prestar_Servico.html" class="btn-tab">Prestar serviços</a>
+          </div>
+
+          <form id="formBusca">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <select id="campoCategoria" class="form-select">
+                  <option value="">Categoria</option>
+                  <option value="geral">Geral</option>
+                  <option value="administracao">Administração</option>
+                  <option value="tecnologia">Tecnologia</option>
+                  <option value="construcao">Construção</option>
+                  <option value="limpeza">Limpeza</option>
+                  <option value="manutencao">Manutenção</option>
+                  <option value="eletrica">Elétrica</option>
+                  <option value="encanamento">Encanamento</option>
+                  <option value="informatica">Informática</option>
+                  <option value="educacao">Educação</option>
+                  <option value="jardinagem">Jardinagem</option>
+                  <option value="outros">Outros</option>
+                </select>
+              </div>
+
+              <div class="col-md-5">
+                <input 
+                  type="text"
+                  id="campoBusca"
+                  class="form-control"
+                  placeholder="Buscar serviço ou profissional...">
+              </div>
+
+              <div class="col-md-3">
+                <button type="submit" class="btn btn-gold w-100">
+                  Buscar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-6 text-center">
+        <img src="Midias/HELP_PNG.png.png" alt="HELP">
+      </div>
+    </div>
+  </div>
+
+  <!-- VAGAS -->
+  <div class="section container">
+    <h4 class="mb-4">Vagas Recentes</h4>
+
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="job-card">
+          <h6>Auxiliar Administrativo</h6>
+          <p class="text-muted">Fortaleza • Empresa ABC</p>
+          <a href="Administracao.html" class="btn btn-gold btn-sm">Ver Detalhes</a>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="job-card">
+          <h6>Eletricista</h6>
+          <p class="text-muted">São Paulo • Empresa XYZ</p>
+          <a href="Eletrica.html" class="btn btn-gold btn-sm">Ver Detalhes</a>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="job-card">
+          <h6>Faxineira</h6>
+          <p class="text-muted">Rio de Janeiro • Residencial</p>
+          <a href="Limpeza.html" class="btn btn-gold btn-sm">Ver Detalhes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIAS -->
+  <div class="section container">
+    <h4 class="mb-4">Categorias Populares</h4>
+
+    <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
+      <div class="col category">
+        <a href="Geral.html">
+          <div class="category-icon">💼</div>
+          Geral
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Limpeza.html">
+          <div class="category-icon">🧹</div>
+          Limpeza
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Manutencao.html">
+          <div class="category-icon">🔧</div>
+          Manutenção
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Construcao.html">
+          <div class="category-icon">🛠️</div>
+          Construção
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Tecnologia.html">
+          <div class="category-icon">💻</div>
+          Tecnologia
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Administracao.html">
+          <div class="category-icon">🏢</div>
+          Administração
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Eletrica.html">
+          <div class="category-icon">⚡</div>
+          Elétrica
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Encanamento.html">
+          <div class="category-icon">🚰</div>
+          Encanamento
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Informatica.html">
+          <div class="category-icon">🖥️</div>
+          Informática
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Educacao.html">
+          <div class="category-icon">📚</div>
+          Educação
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Jardinagem.html">
+          <div class="category-icon">🌿</div>
+          Jardinagem
+        </a>
+      </div>
+
+      <div class="col category">
+        <a href="Outros.html">
+          <div class="category-icon">➕</div>
+          Outros
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY -->
+  <div class="why container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h3>Por que usar o HELP?</h3>
+        <p><span class="check">✔</span> Confiança — profissionais verificados</p>
+        <p><span class="check">✔</span> Praticidade — encontre serviços rapidamente</p>
+        <p><span class="check">✔</span> Segurança — plataforma protegida</p>
+
+        <a href="Cadastro.html" class="btn btn-gold mt-3">
+          Começar Agora
+        </a>
+      </div>
+
+      <div class="col-lg-6 text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" width="300" alt="Ilustração">
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5>HELP</h5>
+          <p>
+            Plataforma que conecta profissionais com empresas e clientes.
+          </p>
+          <div class="footer-social mt-3">
+            <a href="#"><i class="bi bi-whatsapp"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-telephone"></i></a>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <h6>Navegação</h6>
+          <a href="Pagina_Inicial.html">Início</a>
+          <a href="Busca_mobile.html">Vagas</a>
+          <a href="Prestar_Servico.html">Prestadores</a>
+          <a href="Quem_Somos.html">Sobre</a>
+        </div>
+
+        <div class="col-md-3">
+          <h6>Ajuda</h6>
+          <a href="#">Suporte</a>
+          <a href="Termos_de_Uso.html">Termos</a>
+          <a href="#">Privacidade</a>
+        </div>
+
+        <div class="col-md-2">
+          <h6>Contato</h6>
+          <p>(11) 99999-9999</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </div>
 
-</nav>
-
-
-<!-- HERO -->
-
-<div class="hero container">
-
-<div class="row align-items-center">
-
-<div class="col-lg-6">
-
-<h1>
-Encontre Empregos<br>
-ou Preste Serviços
-</h1>
-
-<p>
-Conecte-se com oportunidades de trabalho nas melhores empresas ou ofereça seus serviços.
-</p>
-
-<div class="search-box">
-
-<div class="search-tabs">
-
-<a href="Empreenda_home.html">
-<button class="btn-tab active">Buscar vagas</button>
-</a>
-
-<a href="empreenda_Prestar.html">
-<button class="btn-tab ">Prestar serviços</button>
-</a>
-
-</div>
-
-<form action="tecnologia.html" method="GET">
-
-
-<div class="row">
-
-<div class="col-md-4">
-
-<select name="categoria" class="form-select">
-
-<option value="geral">Geral</option>
-<option value="administracao">Administração</option>
-<option value="tecnologia">Tecnologia</option>
-<option value="construcao">Construção</option>
-<option value="limpeza">Limpeza</option>
-<option value="manutencao">Manutenção</option>
-<option value="automotivo">Automotivo</option>
-
-</select>
-
-</div>
-
-<div class="col-md-5">
-
-<input 
-type="text"
-name="busca"
-class="form-control"
-placeholder="Buscar serviço ou profissional...">
-
-</div>
-
-<div class="col-md-3">
-
-<button type="submit" class="btn btn-gold w-100">
-Buscar
-</button>
-
-</div>
-
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-<div class="col-lg-6 text-center">
-<img src="Midias/HELP_PNG.png.png">
-</div>
-
-</div>
-
-</div>
-
-
-<!-- VAGAS -->
-
-<div class="section container">
-
-<h4 class="mb-4">Vagas Recentes</h4>
-
-<div class="row g-4">
-
-<div class="col-lg-4">
-
-<div class="job-card">
-
-<h6>Auxiliar Administrativo</h6>
-
-<p class="text-muted">
-Fortaleza • Empresa ABC
-</p>
-
-<button class="btn btn-gold btn-sm">Ver Detalhes</button>
-
-</div>
-
-</div>
-
-<div class="col-lg-4">
-
-<div class="job-card">
-
-<h6>Eletricista</h6>
-
-<p class="text-muted">
-São Paulo • Empresa XYZ
-</p>
-
-<button class="btn btn-gold btn-sm">Ver Detalhes</button>
-
-</div>
-
-</div>
-
-<div class="col-lg-4">
-
-<div class="job-card">
-
-<h6>Faxineira</h6>
-
-<p class="text-muted">
-Rio de Janeiro • Residencial
-</p>
-
-<button class="btn btn-gold btn-sm">Ver Detalhes</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- CATEGORIAS -->
-
-<div class="section container">
-
-<h4 class="mb-4">Categorias Populares</h4>
-
-<div class="row">
-
-<div class="col category">
-<a href="geral.html">
-<div class="category-icon">💼</div>
-Geral
-</a>
-</div>
-
-<div class="col category">
-<a href="limpeza.html">
-<div class="category-icon">🧹</div>
-Limpeza
-</a>
-</div>
-
-<div class="col category">
-<a href="manutencao.html">
-<div class="category-icon">🔧</div>
-Manutenção
-</a>
-</div>
-
-<div class="col category">
-<a href="construcao.html">
-<div class="category-icon">🛠️</div>
-Construção
-</a>
-</div>
-
-<div class="col category">
-<a href="tecnologia.html">
-<div class="category-icon">💻</div>
-Tecnologia
-</a>
-</div>
-
-<div class="col category">
-<a href="administracao.html">
-<div class="category-icon">🏢</div>
-Administração
-</a>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- WHY -->
-
-<div class="why container">
-
-<div class="row align-items-center">
-
-<div class="col-lg-6">
-
-<h3>Por que usar o HELP?</h3>
-
-<p><span class="check">✔</span> Confiança — profissionais verificados</p>
-<p><span class="check">✔</span> Praticidade — encontre serviços rapidamente</p>
-<p><span class="check">✔</span> Segurança — plataforma protegida</p>
-
-<button class="btn btn-gold mt-3">
-Começar Agora
-</button>
-
-</div>
-
-<div class="col-lg-6 text-center">
-<img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" width="300">
-</div>
-
-</div>
-
-</div>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<div class="container">
-
-<div class="row">
-
-<div class="col-md-4">
-
-<h5>HELP</h5>
-
-<p>
-Plataforma que conecta profissionais com empresas e clientes.
-</p>
-
-</div>
-
-<div class="col-md-3">
-
-<h6>Navegação</h6>
-
-<a href="#">Início</a>
-<a href="#">Vagas</a>
-<a href="#">Prestadores</a>
-
-</div>
-
-<div class="col-md-3">
-
-<h6>Ajuda</h6>
-
-<a href="#">Suporte</a>
-<a href="#">Termos</a>
-<a href="#">Privacidade</a>
-
-</div>
-
-<div class="col-md-2">
-
-<h6>Contato</h6>
-
-<p>(11) 99999-9999</p>
-
-</div>
-
-</div>
-
-</div>
-
-</footer>
-
-</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+  if (usuario) {
+    document.getElementById("menuLogin").classList.add("d-none");
+    document.getElementById("menuCadastro").classList.add("d-none");
+    document.getElementById("menuUsuario").classList.remove("d-none");
+
+    document.getElementById("userMenuTexto").innerText = usuario.nome || "Usuário";
+    document.getElementById("nomeMenu").innerText = usuario.nome || "Usuário";
+    document.getElementById("fotoMenu").src = usuario.foto || "https://via.placeholder.com/60";
+    document.getElementById("userMenuFotoMini").src = usuario.foto || "https://via.placeholder.com/34";
+  }
+
+  function sair() {
+    localStorage.removeItem("usuario");
+    window.location.href = "Login.html";
+  }
+
+  document.getElementById("formBusca").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const categoria = document.getElementById("campoCategoria").value.toLowerCase().trim();
+    const busca = document.getElementById("campoBusca").value.toLowerCase().trim();
+
+    if (
+      categoria === "tecnologia" ||
+      busca.includes("tecnologia") ||
+      busca.includes("ti") ||
+      busca.includes("suporte")
+    ) {
+      window.location.href = "Tecnologia.html";
+    }
+    else if (
+      categoria === "informatica" ||
+      busca.includes("informatica") ||
+      busca.includes("informática") ||
+      busca.includes("pc") ||
+      busca.includes("computador") ||
+      busca.includes("notebook")
+    ) {
+      window.location.href = "Informatica.html";
+    }
+    else if (
+      categoria === "geral" ||
+      busca.includes("geral")
+    ) {
+      window.location.href = "Geral.html";
+    }
+    else if (
+      categoria === "administracao" ||
+      busca.includes("administração") ||
+      busca.includes("administracao") ||
+      busca.includes("administrativo")
+    ) {
+      window.location.href = "Administracao.html";
+    }
+    else if (
+      categoria === "manutencao" ||
+      busca.includes("manutenção") ||
+      busca.includes("manutencao")
+    ) {
+      window.location.href = "Manutencao.html";
+    }
+    else if (
+      categoria === "construcao" ||
+      busca.includes("construção") ||
+      busca.includes("construcao") ||
+      busca.includes("obra")
+    ) {
+      window.location.href = "Construcao.html";
+    }
+    else if (
+      categoria === "limpeza" ||
+      busca.includes("limpeza") ||
+      busca.includes("faxina")
+    ) {
+      window.location.href = "Limpeza.html";
+    }
+    else if (
+      categoria === "eletrica" ||
+      busca.includes("eletrica") ||
+      busca.includes("elétrica") ||
+      busca.includes("eletricista")
+    ) {
+      window.location.href = "Eletrica.html";
+    }
+    else if (
+      categoria === "encanamento" ||
+      busca.includes("encanamento") ||
+      busca.includes("encanador") ||
+      busca.includes("hidráulica") ||
+      busca.includes("hidraulica")
+    ) {
+      window.location.href = "Encanamento.html";
+    }
+    else if (
+      categoria === "educacao" ||
+      busca.includes("educação") ||
+      busca.includes("educacao") ||
+      busca.includes("professor") ||
+      busca.includes("aula")
+    ) {
+      window.location.href = "Educacao.html";
+    }
+    else if (
+      categoria === "jardinagem" ||
+      busca.includes("jardinagem") ||
+      busca.includes("jardim")
+    ) {
+      window.location.href = "Jardinagem.html";
+    }
+    else if (
+      categoria === "outros" ||
+      busca.includes("outros")
+    ) {
+      window.location.href = "Outros.html";
+    }
+    else {
+      alert("Selecione uma categoria válida ou digite um serviço para buscar.");
+    }
+  });
+</script>
 
 </body>
 </html>

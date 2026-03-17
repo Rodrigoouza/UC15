@@ -1,3 +1,3 @@
 function exibirMensagem2() {
-    document.getElementById('mensagem01').innerText = 'olamundo via arquivo exerno'
+    document.getElementById('mensagem01').innerText = 'ola mundo via arquivo exerno'
 }

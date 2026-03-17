@@ -33,7 +33,6 @@
       color: var(--texto);
     }
 
-    /* HEADER */
     .top-header {
       background: var(--branco);
       border-bottom: 1px solid var(--borda);
@@ -71,7 +70,6 @@
       box-shadow: none;
     }
 
-    /* ÁREA PRINCIPAL */
     .cadastro-section {
       min-height: calc(100vh - 180px);
       display: flex;
@@ -178,9 +176,9 @@
 
     #msg {
       margin-top: 18px;
+      min-height: 30px;
     }
 
-    /* FOOTER */
     footer {
       background: var(--azul-escuro);
       color: var(--branco);
@@ -203,7 +201,6 @@
       color: var(--dourado-claro);
     }
 
-    /* RESPONSIVO */
     @media (max-width: 991px) {
       .cadastro-card {
         grid-template-columns: 1fr;
@@ -266,7 +263,6 @@
   <main class="cadastro-section">
     <div class="cadastro-card">
 
-      <!-- LADO ESQUERDO -->
       <div class="cadastro-info">
         <h2>Bem-vindo à HELP</h2>
         <p>
@@ -278,7 +274,6 @@
         </p>
       </div>
 
-      <!-- FORMULÁRIO -->
       <div class="cadastro-form">
         <h3>Cadastro de Usuário</h3>
 
@@ -290,9 +285,9 @@
           <input type="file" class="form-control" id="foto" accept="image/*">
           <input type="text" class="form-control" id="nome" placeholder="Nome completo" required>
           <input type="text" class="form-control" id="cpf" placeholder="CPF ou CNPJ">
-          <input type="text" class="form-control" id="telefone" placeholder="Telefone">
-          <input type="email" class="form-control" id="email" placeholder="E-mail">
-          <input type="password" class="form-control" id="senha" placeholder="Senha">
+          <input type="text" class="form-control" id="telefone" placeholder="Telefone" required>
+          <input type="email" class="form-control" id="email" placeholder="E-mail" required>
+          <input type="password" class="form-control" id="senha" placeholder="Senha" required>
 
           <button type="submit" class="btn-help">Cadastrar</button>
         </form>
@@ -322,32 +317,53 @@
   </footer>
 
   <script>
-    // PREVIEW FOTO
-    document.getElementById("foto").addEventListener("change", function () {
-      let file = this.files[0];
+    const fotoInput = document.getElementById("foto");
+    const preview = document.getElementById("preview");
+    const formCadastro = document.getElementById("formCadastro");
+    const msg = document.getElementById("msg");
+
+    // PREVIEW DA FOTO
+    fotoInput.addEventListener("change", function () {
+      const file = this.files[0];
 
       if (file) {
-        document.getElementById("preview").src = URL.createObjectURL(file);
+        preview.src = URL.createObjectURL(file);
       }
     });
 
-    // SALVAR
-    document.getElementById("formCadastro").addEventListener("submit", function (e) {
+    // CADASTRO
+    formCadastro.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      let usuario = {
-        nome: document.getElementById("nome").value,
-        cpf: document.getElementById("cpf").value,
-        telefone: document.getElementById("telefone").value,
-        email: document.getElementById("email").value,
-        senha: document.getElementById("senha").value,
-        foto: document.getElementById("preview").src
+      const nome = document.getElementById("nome").value.trim();
+      const cpf = document.getElementById("cpf").value.trim();
+      const telefone = document.getElementById("telefone").value.trim();
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const senha = document.getElementById("senha").value.trim();
+      const foto = preview.src;
+
+      if (!nome || !telefone || !email || !senha) {
+        msg.innerHTML = "<div class='alert alert-danger'>Preencha os campos obrigatórios.</div>";
+        return;
+      }
+
+      const usuario = {
+        nome: nome,
+        cpf: cpf,
+        telefone: telefone,
+        email: email,
+        senha: senha,
+        foto: foto
       };
 
-      localStorage.setItem("usuario", JSON.stringify(usuario));
+      // salva o cadastro
+      localStorage.setItem("usuarioCadastro", JSON.stringify(usuario));
 
-      document.getElementById("msg").innerHTML =
-        "<div class='alert alert-success'>Cadastrado com sucesso!</div>";
+      msg.innerHTML = "<div class='alert alert-success'>Cadastro realizado com sucesso! Redirecionando para o login...</div>";
+
+      setTimeout(() => {
+        window.location.href = "Login.html";
+      }, 1500);
     });
   </script>
 

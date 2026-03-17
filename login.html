@@ -34,7 +34,6 @@
       color: var(--texto);
     }
 
-    /* HEADER */
     .top-header {
       background: var(--branco);
       border-bottom: 1px solid var(--borda);
@@ -72,7 +71,6 @@
       box-shadow: none;
     }
 
-    /* LOGIN */
     .login-section {
       min-height: calc(100vh - 180px);
       display: flex;
@@ -239,7 +237,6 @@
       color: var(--dourado);
     }
 
-    /* FOOTER */
     footer {
       background: var(--azul-escuro);
       color: var(--branco);
@@ -262,7 +259,6 @@
       color: var(--dourado-claro);
     }
 
-    /* RESPONSIVO */
     @media (max-width: 991px) {
       .login-card {
         grid-template-columns: 1fr;
@@ -299,7 +295,7 @@
   <header class="top-header">
     <div class="container">
       <nav class="navbar navbar-expand-lg">
-        <a href="Empreenda_home.html" class="navbar-brand">
+        <a href="Pagina_Inicial.html" class="navbar-brand">
           <img src="Midias/imagem.png" alt="HELP Logo" class="Logo">
         </a>
 
@@ -340,12 +336,12 @@
       <div class="login-form-area">
         <h3>Login</h3>
 
-        <button class="social-btn btn-google mb-2">
+        <button type="button" class="social-btn btn-google mb-2">
           <i class="bi bi-google"></i>
           Entrar com Google
         </button>
 
-        <button class="social-btn btn-facebook mb-2">
+        <button type="button" class="social-btn btn-facebook mb-2">
           <i class="bi bi-facebook"></i>
           Entrar com Facebook
         </button>
@@ -356,12 +352,12 @@
 
         <form id="loginForm">
           <div class="mb-3">
-            <label class="form-label">E-mail</label>
+            <label class="form-label" for="usuario">E-mail</label>
             <input type="email" class="form-control" id="usuario" required>
           </div>
 
           <div class="mb-3">
-            <label class="form-label">Senha</label>
+            <label class="form-label" for="senha">Senha</label>
             <input type="password" class="form-control" id="senha" required>
           </div>
 
@@ -402,16 +398,36 @@
   </footer>
 
   <script>
+    // Se já estiver logado, vai direto para a página inicial
+    const usuarioLogado = JSON.parse(localStorage.getItem("usuario"));
+    if (usuarioLogado) {
+      window.location.href = "Pagina_Inicial.html";
+    }
+
     document.getElementById("loginForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
-      let user = document.getElementById("usuario").value;
-      let pass = document.getElementById("senha").value;
+      const emailDigitado = document.getElementById("usuario").value.trim().toLowerCase();
+      const senhaDigitada = document.getElementById("senha").value.trim();
+      const msgErro = document.getElementById("msgErro");
 
-      if (user == "teste@teste.com" && pass == "123") {
+      // usuário salvo no cadastro
+      const usuarioCadastrado = JSON.parse(localStorage.getItem("usuarioCadastro"));
+
+      if (!usuarioCadastrado) {
+        msgErro.innerText = "Nenhum usuário cadastrado. Faça seu cadastro primeiro.";
+        return;
+      }
+
+      const emailSalvo = (usuarioCadastrado.email || "").trim().toLowerCase();
+      const senhaSalva = (usuarioCadastrado.senha || "").trim();
+
+      if (emailDigitado === emailSalvo && senhaDigitada === senhaSalva) {
+        // cria sessão para a página inicial reconhecer
+        localStorage.setItem("usuario", JSON.stringify(usuarioCadastrado));
         window.location.href = "Pagina_Inicial.html";
       } else {
-        document.getElementById("msgErro").innerText = "Usuário ou senha inválidos";
+        msgErro.innerText = "Usuário ou senha inválidos";
       }
     });
   </script>

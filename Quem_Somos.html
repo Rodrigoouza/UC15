@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HELP - Quem Somos</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --azul-escuro: #212b40;
+      --azul-secundario: #2f3d59;
+      --dourado: #a97e3a;
+      --dourado-claro: #c9a227;
+      --cinza-claro: #d5d5d5;
+      --fundo: #f4f5f7;
+      --branco: #ffffff;
+      --texto: #2b2b2b;
+      --borda: #dcdcdc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--fundo);
+      color: var(--texto);
+    }
+
+    .top-header {
+      background: var(--branco);
+      border-bottom: 1px solid var(--borda);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .navbar {
+      padding: 18px 0;
+    }
+
+    .Logo {
+      width: 150px;
+      height: auto;
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--azul-escuro);
+      font-weight: 600;
+      margin-left: 12px;
+      transition: 0.3s;
+      border-radius: 6px;
+      padding: 8px 12px !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+      background: var(--cinza-claro);
+      color: var(--azul-escuro);
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul-secundario));
+      color: var(--branco);
+      padding: 60px 20px 50px;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 2.6rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+      color: var(--cinza-claro);
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #f1f1f1;
+      margin-bottom: 0;
+    }
+
+    .hero-text .destaque {
+      color: var(--dourado-claro);
+      font-weight: bold;
+    }
+
+    .search-card {
+      background: var(--branco);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.14);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .tab-link {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 1px solid #e3e3e3;
+      color: var(--azul-escuro);
+      background: #fafafa;
+      transition: 0.3s;
+    }
+
+    .tab-link.active,
+    .tab-link:hover {
+      background: linear-gradient(90deg, var(--dourado), var(--dourado-claro));
+      color: var(--branco);
+      border-color: transparent;
+    }
+
+    .form-control,
+    .form-select {
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #cfcfcf;
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--dourado);
+      box-shadow: 0 0 0 0.2rem rgba(169, 126, 58, 0.18);
+    }
+
+    .btn-help {
+      width: 100%;
+      background: linear-gradient(90deg, var(--dourado), var(--dourado-claro));
+      color: var(--branco);
+      border: none;
+      border-radius: 10px;
+      padding: 13px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-help:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--azul-escuro);
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    .categories-section {
+      margin-bottom: 50px;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .category-card {
+      background: var(--branco);
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 22px 18px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      transition: 0.3s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+      border-color: var(--dourado-claro);
+    }
+
+    .category-card a {
+      text-decoration: none;
+      color: var(--azul-escuro);
+      font-weight: bold;
+      font-size: 15px;
+      display: block;
+    }
+
+    .category-icon {
+      font-size: 28px;
+      color: var(--dourado);
+      margin-bottom: 10px;
+    }
+
+    .about-card {
+      background: var(--branco);
+      border-radius: 20px;
+      padding: 38px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .about-card p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: #444;
+      margin-bottom: 18px;
+    }
+
+    .about-highlight {
+      color: var(--dourado);
+      font-weight: bold;
+    }
+
+    footer {
+      background: var(--azul-escuro);
+      color: var(--branco);
+      padding: 22px 0;
+      margin-top: 50px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .footer-social a {
+      color: var(--branco);
+      font-size: 20px;
+      margin-left: 14px;
+      transition: 0.3s;
+    }
+
+    .footer-social a:hover {
+      color: var(--dourado-claro);
+    }
+
+    @media (max-width: 991px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .navbar-nav .nav-link {
+        margin-left: 0;
+        margin-top: 8px;
+      }
+
+      footer .row {
+        text-align: center;
+        gap: 12px;
+      }
+
+      .footer-social a {
+        margin: 0 8px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .categories-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card {
+        padding: 28px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <a href="Pagina_Inicial.html" class="navbar-brand">
+          <img src="Midias/imagem.png" alt="HELP Logo" class="Logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span><i class="bi bi-list fs-2" style="color:#212b40;"></i></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="Pagina_Inicial.html">Página Inicial</a></li>
+            <li class="nav-item"><a class="nav-link" href="Login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="Busca_mobile.html">Buscar Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="Prestar_Servico.html">Prestar Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="Quem_Somos.html">Quem Somos</a></li>
+            <li class="nav-item"><a class="nav-link" href="Termos_de_Uso.html">Termos de Uso</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Quem Somos</h1>
+        <p>
+          A HELP é uma plataforma criada para conectar clientes e profissionais de forma rápida, prática e segura.
+          Nossa proposta é simplificar a contratação de serviços e criar oportunidades reais para quem deseja
+          trabalhar com mais visibilidade, organização e <span class="destaque">credibilidade</span>.
+        </p>
+      </div>
+
+      <div class="search-card">
+        <div class="tabs">
+          <a href="Busca_mobile.html" class="tab-link active">Buscar vagas</a>
+          <a href="Prestar_Servico.html" class="tab-link">Prestar Serviços</a>
+        </div>
+
+        <form>
+          <input type="text" class="form-control" placeholder="Buscar">
+
+          <select class="form-select">
+            <option selected>Localidade</option>
+            <option>São Paulo</option>
+            <option>Rio de Janeiro</option>
+            <option>Brasília</option>
+            <option>Salvador</option>
+            <option>Fortaleza</option>
+            <option>Belo Horizonte</option>
+            <option>Manaus</option>
+            <option>Curitiba</option>
+            <option>Recife</option>
+            <option>Porto Alegre</option>
+            <option>Goiânia</option>
+            <option>Belém</option>
+            <option>Guarulhos</option>
+            <option>Campinas</option>
+          </select>
+
+          <select class="form-select">
+            <option selected>Área de trabalho</option>
+            <option>Tecnologia</option>
+            <option>Geral</option>
+            <option>Administração</option>
+            <option>Manutenção</option>
+            <option>Construção</option>
+            <option>Limpeza</option>
+            <option>Podologia</option>
+          </select>
+
+          <button type="button" class="btn-help">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <main class="main-content">
+
+    <section class="categories-section">
+      <h2 class="section-title">Categorias Populares</h2>
+
+      <div class="categories-grid">
+        <div class="category-card">
+          <div class="category-icon"><i class="bi bi-briefcase"></i></div>
+          <a href="Geral.html">Geral</a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon"><i class="bi bi-stars"></i></div>
+          <a href="Limpeza.html">Limpeza</a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon"><i class="bi bi-tools"></i></div>
+          <a href="Manutencao.html">Manutenção</a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon"><i class="bi bi-building"></i></div>
+          <a href="Construcao.html">Construção</a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon"><i class="bi bi-clipboard-data"></i></div>
+          <a href="Administracao.html">Administração</a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon"><i class="bi bi-laptop"></i></div>
+          <a href="Tecnologia.html">Tecnologia</a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon"><i class="bi bi-heart-pulse"></i></div>
+          <a href="Podologia.html">Podologia</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-card">
+      <h2 class="section-title">Nossa história e propósito</h2>
+
+      <p>
+        Somos uma plataforma digital criada para conectar pessoas que precisam de serviços a profissionais qualificados, de forma rápida, prática e segura.
+      </p>
+
+      <p>
+        Inspirados em modelos modernos de contratação sob demanda, oferecemos um sistema simples onde o cliente encontra o prestador certo em poucos passos.
+      </p>
+
+      <p>
+        Nossa missão é facilitar o dia a dia, permitindo que qualquer pessoa solicite serviços com confiança, enquanto profissionais têm a oportunidade de divulgar seu trabalho e conquistar novos clientes.
+      </p>
+
+      <p>
+        Trabalhamos com foco em <span class="about-highlight">agilidade, segurança e transparência</span>, garantindo uma experiência eficiente tanto para quem contrata quanto para quem presta o serviço.
+      </p>
+
+      <p>
+        Aqui, a conexão entre cliente e profissional acontece de forma direta, confiável e sem complicação.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 col-md-12 mb-3 mb-lg-0 text-center text-lg-start">
+          <p>Help Services - Serviços Terceirizados - Todos os direitos reservados</p>
+        </div>
+
+        <div class="col-lg-4 col-md-12 text-center text-lg-end footer-social">
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+          <a href="#"><i class="bi bi-meta"></i></a>
+          <a href="#"><i class="bi bi-telephone"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
