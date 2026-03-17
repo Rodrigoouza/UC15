@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HELP - Cadastro de Usuário</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <style>
+    :root {
+      --azul-escuro: #212b40;
+      --dourado: #a97e3a;
+      --dourado-claro: #c9a227;
+      --cinza-claro: #d5d5d5;
+      --fundo: #f4f5f7;
+      --branco: #ffffff;
+      --texto: #2b2b2b;
+      --borda: #dcdcdc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--fundo);
+      color: var(--texto);
+    }
+
+    /* HEADER */
+    .top-header {
+      background: var(--branco);
+      border-bottom: 1px solid var(--borda);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .navbar {
+      padding: 18px 0;
+    }
+
+    .Logo {
+      width: 150px;
+      height: auto;
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--azul-escuro);
+      font-weight: 600;
+      margin-left: 12px;
+      transition: 0.3s;
+      border-radius: 6px;
+      padding: 8px 12px !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+      background: var(--cinza-claro);
+      color: var(--azul-escuro);
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    /* ÁREA PRINCIPAL */
+    .cadastro-section {
+      min-height: calc(100vh - 180px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 20px;
+    }
+
+    .cadastro-card {
+      width: 100%;
+      max-width: 1000px;
+      background: var(--branco);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.10);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+    }
+
+    .cadastro-info {
+      background: linear-gradient(135deg, var(--azul-escuro), #2e3b57);
+      color: var(--branco);
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cadastro-info h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 18px;
+      color: var(--cinza-claro);
+    }
+
+    .cadastro-info p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #f1f1f1;
+      margin-bottom: 12px;
+    }
+
+    .cadastro-info .destaque {
+      color: var(--dourado-claro);
+      font-weight: bold;
+    }
+
+    .cadastro-form {
+      padding: 45px 40px;
+    }
+
+    .cadastro-form h3 {
+      text-align: center;
+      color: var(--azul-escuro);
+      font-size: 1.9rem;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
+
+    .foto-preview-box {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #preview {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--dourado);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .form-control {
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #cfcfcf;
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    .form-control:focus {
+      border-color: var(--dourado);
+      box-shadow: 0 0 0 0.2rem rgba(169, 126, 58, 0.18);
+    }
+
+    .btn-help {
+      width: 100%;
+      background: linear-gradient(90deg, var(--dourado), var(--dourado-claro));
+      color: var(--branco);
+      border: none;
+      border-radius: 10px;
+      padding: 13px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-top: 5px;
+    }
+
+    .btn-help:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    #msg {
+      margin-top: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--azul-escuro);
+      color: var(--branco);
+      padding: 22px 0;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .footer-social a {
+      color: var(--branco);
+      font-size: 20px;
+      margin-left: 14px;
+      transition: 0.3s;
+    }
+
+    .footer-social a:hover {
+      color: var(--dourado-claro);
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 991px) {
+      .cadastro-card {
+        grid-template-columns: 1fr;
+      }
+
+      .cadastro-info {
+        text-align: center;
+        padding: 35px 25px;
+      }
+
+      .cadastro-form {
+        padding: 30px 25px;
+      }
+
+      .navbar-nav .nav-link {
+        margin-left: 0;
+        margin-top: 8px;
+      }
+
+      footer .row {
+        text-align: center;
+        gap: 12px;
+      }
+
+      .footer-social a {
+        margin: 0 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="top-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <a href="Pagina_Inicial.html" class="navbar-brand">
+          <img src="Midias/imagem.png" alt="HELP Logo" class="Logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span><i class="bi bi-list fs-2" style="color:#212b40;"></i></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="Pagina_Inicial.html">Página Inicial</a></li>
+            <li class="nav-item"><a class="nav-link" href="Login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="Busca_mobile.html">Buscar Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="Prestar_Servico.html">Prestar Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="Quem_Somos.html">Quem Somos</a></li>
+            <li class="nav-item"><a class="nav-link" href="Termos_de_Uso.html">Termos de Uso</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="cadastro-section">
+    <div class="cadastro-card">
+
+      <!-- LADO ESQUERDO -->
+      <div class="cadastro-info">
+        <h2>Bem-vindo à HELP</h2>
+        <p>
+          Cadastre-se na plataforma e tenha acesso a oportunidades em diversas áreas de serviços,
+          conectando profissionais e empresas de forma prática, rápida e eficiente.
+        </p>
+        <p>
+          Faça parte de uma rede com mais organização, credibilidade e <span class="destaque">mais chances de crescer profissionalmente</span>.
+        </p>
+      </div>
+
+      <!-- FORMULÁRIO -->
+      <div class="cadastro-form">
+        <h3>Cadastro de Usuário</h3>
+
+        <form id="formCadastro">
+          <div class="foto-preview-box">
+            <img id="preview" src="Midias/perfil nulo.jpg" alt="Prévia da foto">
+          </div>
+
+          <input type="file" class="form-control" id="foto" accept="image/*">
+          <input type="text" class="form-control" id="nome" placeholder="Nome completo" required>
+          <input type="text" class="form-control" id="cpf" placeholder="CPF ou CNPJ">
+          <input type="text" class="form-control" id="telefone" placeholder="Telefone">
+          <input type="email" class="form-control" id="email" placeholder="E-mail">
+          <input type="password" class="form-control" id="senha" placeholder="Senha">
+
+          <button type="submit" class="btn-help">Cadastrar</button>
+        </form>
+
+        <div id="msg" class="text-center"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 col-md-12 mb-3 mb-lg-0 text-center text-lg-start">
+          <p>Help Services - Serviços Terceirizados - Todos os direitos reservados</p>
+        </div>
+
+        <div class="col-lg-4 col-md-12 text-center text-lg-end footer-social">
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+          <a href="#"><i class="bi bi-meta"></i></a>
+          <a href="#"><i class="bi bi-telephone"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // PREVIEW FOTO
+    document.getElementById("foto").addEventListener("change", function () {
+      let file = this.files[0];
+
+      if (file) {
+        document.getElementById("preview").src = URL.createObjectURL(file);
+      }
+    });
+
+    // SALVAR
+    document.getElementById("formCadastro").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let usuario = {
+        nome: document.getElementById("nome").value,
+        cpf: document.getElementById("cpf").value,
+        telefone: document.getElementById("telefone").value,
+        email: document.getElementById("email").value,
+        senha: document.getElementById("senha").value,
+        foto: document.getElementById("preview").src
+      };
+
+      localStorage.setItem("usuario", JSON.stringify(usuario));
+
+      document.getElementById("msg").innerHTML =
+        "<div class='alert alert-success'>Cadastrado com sucesso!</div>";
+    });
+  </script>
+
+</body>
+</html>

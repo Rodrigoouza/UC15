@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de JavaScript</title>
+</head>
+<body>
+    <h1>exemplos de javascript</h1>
+    <h2>alterando o conteudo de um elemento</h2>
+    
+    <p id="mensagem01"> </p>
+
+    <h3>via seletor script</h3>
+    
+    <script>
+        document.getElementById('mensagem01').innerText = 'Olá mundo';
+    </script>
+
+    <button onclick="document.getElementById('mensagem01').innerText = 'Olá mundo via onclick';">Clique aqui</button>
+    <p id="mensagem01"></p>
+
+    <h3> via atributo onclik</h3>
+
+    <script>
+    function exibirMensagem(){
+        document.getElementById('mensagem01').innerText = 'Olá mundo via onclick';
+    }
+    
+    </script>
+
+    <h3>via atributo função</h3>
+<button onclick="exibirMensagem()">click aqui</button>
+
+<script>
+    function exibirMensagem(){
+        document.getElementById('mensagem01').innerText = 'Olá mundo via função';
+    }
+</script>
+
+<h3>Via arquivo externo</h3>
+<button onclick="exibirMensagem2()">click aqui</button>
+<script>
+    
+</script>
+</body>
+</html>
