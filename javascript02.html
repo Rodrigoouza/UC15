@@ -35,5 +35,27 @@
     
 </script>
 
+<h1>Desvio condicional</h1>
+<button onclick="mensagem2()" >Click aqui</button>
+<script>
+    function mensagem2(){
+    let nome = prompt("Digite seu nome:");
+    let hora = prompt("Digite a hora:");
+    let msg;
+    if(hora < 12){
+        msg = "Bom dia, " + nome + "!";
+    }else if(hora < 18){
+msg = "Boa tarde, " + nome + "!";
+    } else {
+        msg = "Boa noite, " + nome + "!";
+    }
+
+    alert(msg);
+}
+
+</script>
+
+
+
 </body>
 </html>

@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HELP - Prestar Serviços</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <style>
+    :root{
+      --azul-escuro:#212B40;
+      --azul-degrade-1:#0f1f3c;
+      --azul-degrade-2:#243f69;
+      --dourado:#A97E3A;
+      --dourado-claro:#cfa25a;
+      --cinza-claro:#d5d5d5;
+      --fundo:#eef0f3;
+      --branco:#ffffff;
+      --texto:#1f2937;
+      --perigo:#dc3545;
+    }
+
     body{
-      background:#eef0f3;
+      background:var(--fundo);
       font-family:Segoe UI, sans-serif;
       margin:0;
       padding:0;
+      color:var(--texto);
     }
 
     .main-wrapper{
@@ -18,55 +35,110 @@
       background:white;
       overflow:hidden;
       box-shadow:0 25px 60px rgba(0,0,0,0.15);
+      min-height:100vh;
     }
 
-    .navbar{
-      background:linear-gradient(90deg,#0f1f3c,#243f69);
-      padding:18px 30px;
+    .navbar-help{
+      background:linear-gradient(90deg,var(--azul-degrade-1),var(--azul-degrade-2));
+      padding:8px 20px;
     }
 
-    .btn-outline-light{
+    .logo-img{
+      width:140px;
+      max-width:100%;
+      height:auto;
+    }
+
+    .navbar-help .navbar-nav{
+      display:flex;
+      align-items:center;
+    }
+
+    .navbar-help .nav-item{
+      list-style:none;
+    }
+
+    .navbar-help .nav-link-custom,
+    .navbar-help .btn-nav{
+      color:var(--cinza-claro);
       border:none;
-      color:#d5d5d5;
+      background:transparent;
+      font-weight:600;
+      text-decoration:none;
+      padding:6px 10px;
+      border-radius:8px;
+      transition:.25s;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:14px;
     }
 
-    .btn-outline-light:hover{
-      color:#ffffff;
-      background:transparent;
+    .navbar-help .nav-link-custom:hover,
+    .navbar-help .btn-nav:hover{
+      background:rgba(255,255,255,0.08);
+      color:#fff;
     }
 
     .btn-login{
-      background:#d5d5d5 !important;
-      color:#000 !important;
-      border:1px solid #d5d5d5 !important;
-      transition:0.3s;
-    }
-
-    .btn-login:hover{
-      background:#d5d5d5 !important;
-      border:1px solid #d5d5d5 !important;
-      color:#000 !important;
+      background:var(--cinza-claro)!important;
+      color:#000!important;
+      border:none;
+      font-weight:600;
+      border-radius:8px;
+      padding:7px 14px;
+      font-size:14px;
     }
 
     .btn-gold{
-      background:linear-gradient(90deg,#cfa25a,#b8893e);
+      background:linear-gradient(90deg,var(--dourado-claro),#b8893e);
       border:none;
       color:white;
+      font-weight:600;
+      border-radius:8px;
+      padding:7px 14px;
+      font-size:14px;
     }
 
     .btn-gold:hover{
-      opacity:0.95;
+      opacity:.95;
       color:white;
     }
 
+    .user-thumb{
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid var(--dourado-claro);
+    }
+
+    .dropdown-menu{
+      border:none;
+      border-radius:14px;
+      box-shadow:0 16px 35px rgba(0,0,0,0.15);
+      padding:10px;
+      min-width:240px;
+    }
+
+    .dropdown-item{
+      border-radius:8px;
+      padding:10px 12px;
+    }
+
+    .dropdown-item:hover{
+      background:#f3f4f6;
+    }
+
     .hero{
-      padding:60px 70px;
+      padding:50px 70px;
     }
 
     .hero h1{
       font-weight:700;
       font-size:42px;
       margin-bottom:15px;
+      color:var(--azul-escuro);
     }
 
     .hero p{
@@ -86,6 +158,7 @@
       display:flex;
       gap:10px;
       margin-bottom:25px;
+      flex-wrap:wrap;
     }
 
     .search-tabs a{
@@ -103,10 +176,6 @@
     .btn-tab{
       background:#f3f3f3;
       color:#212b40;
-    }
-
-    .btn-tab:hover{
-      background:#cfcfcf;
     }
 
     .btn-tab.active{
@@ -133,14 +202,16 @@
       padding:25px;
     }
 
-    #descricaoServico{
+    .textarea-help{
       width:100%;
-      min-height:110px;
-      resize:none;
-      padding:10px;
+      min-height:120px !important;
+      resize:vertical;
+      padding:12px 14px;
       border-radius:8px;
       border:1px solid #ced4da;
       font-family:Segoe UI, sans-serif;
+      line-height:1.6;
+      background:#fff;
     }
 
     .lado-imagem{
@@ -166,10 +237,12 @@
       padding:20px;
       box-shadow:0 10px 25px rgba(0,0,0,0.08);
       background:#fff;
+      height:100%;
     }
 
     .category{
       text-align:center;
+      margin-bottom:20px;
     }
 
     .category-icon{
@@ -195,6 +268,149 @@
       font-weight:bold;
     }
 
+    .services-toolbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:20px;
+    }
+
+    .services-list{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      margin-top:16px;
+    }
+
+    .service-item{
+      border:1px solid #ececec;
+      border-radius:16px;
+      padding:18px;
+      background:#fafafa;
+    }
+
+    .service-top{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+    }
+
+    .service-check{
+      margin-top:5px;
+      transform:scale(1.15);
+      cursor:pointer;
+    }
+
+    .service-content{
+      flex:1;
+    }
+
+    .service-item h5{
+      margin:0 0 6px 0;
+      color:var(--azul-escuro);
+      font-weight:700;
+    }
+
+    .service-item .meta{
+      color:#a97e3a;
+      font-weight:700;
+      font-size:14px;
+      margin-bottom:8px;
+    }
+
+    .service-item p{
+      margin-bottom:12px;
+      color:#4b5563;
+      line-height:1.7;
+    }
+
+    .acoes-servico{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .mini-btn{
+      border:none;
+      border-radius:8px;
+      padding:8px 12px;
+      font-size:13px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .mini-btn.editar{
+      background:#212b40;
+      color:#fff;
+    }
+
+    .mini-btn.excluir{
+      background:#dc3545;
+      color:#fff;
+    }
+
+    .multi-select-box{
+      border:1px solid #ced4da;
+      border-radius:12px;
+      padding:14px;
+      background:#fff;
+    }
+
+    .multi-select-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:8px;
+    }
+
+    .multi-select-grid .form-check{
+      background:#f8f9fb;
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      padding:10px 12px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      min-height:44px;
+      margin:0;
+    }
+
+    .multi-select-grid .form-check-input{
+      margin:0;
+      cursor:pointer;
+      flex-shrink:0;
+    }
+
+    .multi-select-grid .form-check-label{
+      cursor:pointer;
+      margin:0;
+      width:100%;
+      user-select:none;
+    }
+
+    .input-info{
+      margin-top:10px;
+      font-size:13px;
+      color:#6b7280;
+    }
+
+    .selected-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+
+    .selected-tag{
+      background:#212b40;
+      color:#fff;
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      font-weight:600;
+    }
+
     footer{
       background:linear-gradient(90deg,#0f1f3c,#243f69);
       color:white;
@@ -207,6 +423,60 @@
       display:block;
       margin-bottom:6px;
     }
+
+    footer a:hover{
+      color:#fff;
+    }
+
+    .footer-social a{
+      display:inline-block;
+      margin-right:12px;
+      font-size:20px;
+    }
+
+    #mensagemPrestador,
+    #mensagemServico{
+      min-height:30px;
+      margin-top:16px;
+      font-weight:600;
+    }
+
+    @media (max-width: 991px){
+      .hero,
+      .section,
+      .why,
+      footer{
+        padding:35px 20px;
+      }
+
+      .hero h1{
+        font-size:32px;
+      }
+
+      .navbar-help{
+        padding:8px 14px;
+      }
+
+      .logo-img{
+        width:120px;
+      }
+
+      .navbar-help .collapse .navbar-nav{
+        align-items:flex-start !important;
+        gap:6px !important;
+        margin-top:10px;
+      }
+
+      .navbar-help .nav-item{
+        width:100%;
+      }
+    }
+
+    @media (max-width: 767px){
+      .multi-select-grid{
+        grid-template-columns:1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -214,19 +484,69 @@
 <div class="main-wrapper">
 
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg">
-    <a href="Pagina_inicial.html">
-      <img src="Midias/Logo full branca.png" width="150" alt="Logo HELP">
-    </a>
+  <nav class="navbar navbar-expand-lg navbar-help">
+    <div class="container-fluid px-0">
+      <a href="Pagina_Inicial.html" class="navbar-brand me-3">
+        <img src="Midias/Logo full branca.png" alt="HELP" class="logo-img">
+      </a>
 
-    <div class="ms-auto">
-      <button class="btn btn-outline-light">Início</button>
-      <button class="btn btn-outline-light">Vagas</button>
-      <button class="btn btn-outline-light">Prestadores</button>
-      <button class="btn btn-outline-light">Sobre</button>
+      <button class="navbar-toggler text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHelp" aria-controls="navbarHelp" aria-expanded="false" aria-label="Abrir menu">
+        <i class="bi bi-list fs-2"></i>
+      </button>
 
-      <button class="btn btn-login ms-3">Entrar</button>
-      <button class="btn btn-gold ms-2">Cadastrar-se</button>
+      <div class="collapse navbar-collapse" id="navbarHelp">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a href="Pagina_Inicial.html" class="nav-link-custom">Início</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="Busca_mobile.html" class="nav-link-custom">Vagas</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="Prestar_Servico.html" class="nav-link-custom">Prestadores</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="Quem_Somos.html" class="nav-link-custom">Sobre</a>
+          </li>
+
+          <li class="nav-item" id="menuLogin">
+            <a href="Login.html" class="btn btn-login ms-lg-3">Entrar</a>
+          </li>
+
+          <li class="nav-item" id="menuCadastro">
+            <a href="Cadastro.html" class="btn btn-gold">Cadastrar-se</a>
+          </li>
+
+          <li class="nav-item dropdown d-none" id="menuUsuario">
+            <a class="btn-nav dropdown-toggle" href="#" id="userMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://via.placeholder.com/34" alt="Usuário" class="user-thumb" id="userMenuFotoMini">
+              <span id="userMenuTexto">Usuário</span>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li class="text-center p-2">
+                <img
+                  id="fotoMenu"
+                  src="https://via.placeholder.com/60"
+                  width="60"
+                  height="60"
+                  style="border-radius:50%;object-fit:cover;border:3px solid #cfa25a;"
+                  alt="Foto do usuário">
+                <br><br>
+                <span id="nomeMenu" class="fw-bold"></span>
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="Usuario.html">Perfil</a></li>
+              <li><a class="dropdown-item" href="Prestar_Servico.html">Área do Prestador</a></li>
+              <li><a class="dropdown-item text-danger" href="#" id="btnLogout">Sair</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 
@@ -240,21 +560,17 @@
     </p>
 
     <div class="search-box">
-
-      <!-- BOTÕES -->
       <div class="search-tabs">
-        <a href="Pagina_inicial.html">
-          <button class="btn-tab">Buscar vagas</button>
+        <a href="Pagina_Inicial.html">
+          <button type="button" class="btn-tab">Buscar vagas</button>
         </a>
 
-        <a href="empreenda_Prestar.html">
-          <button class="btn-tab active">Prestar serviços</button>
+        <a href="Prestar_Servico.html">
+          <button type="button" class="btn-tab active">Prestar serviços</button>
         </a>
       </div>
 
-      <!-- FORMULÁRIO + IMAGEM -->
       <div class="row align-items-center justify-content-center g-4">
-
         <div class="col-lg-7">
           <div class="card shadow card-cadastro">
             <div class="card-header text-center">
@@ -262,50 +578,31 @@
             </div>
 
             <div class="card-body">
-              <form>
+              <form id="formPrestador">
                 <div class="mb-3">
-                  <label class="form-label">Nome Completo</label>
-                  <input type="text" class="form-control">
+                  <label class="form-label" for="nomePrestador">Nome Completo</label>
+                  <input type="text" class="form-control" id="nomePrestador">
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label">E-mail</label>
-                  <input type="email" class="form-control">
+                  <label class="form-label" for="emailPrestador">E-mail</label>
+                  <input type="email" class="form-control" id="emailPrestador">
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label">Telefone</label>
-                  <input type="text" class="form-control">
+                  <label class="form-label" for="telefonePrestador">Telefone</label>
+                  <input type="text" class="form-control" id="telefonePrestador">
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label">CPF ou CNPJ</label>
-                  <input type="text" class="form-control">
+                  <label class="form-label" for="cpfPrestador">CPF ou CNPJ</label>
+                  <input type="text" class="form-control" id="cpfPrestador">
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label">Tipo de serviço</label>
-                  <select class="form-select">
-                    <option>Selecione</option>
-                    <option>Eletricista</option>
-                    <option>Encanador</option>
-                    <option>Construção</option>
-                    <option>Limpeza</option>
-                    <option>Informática</option>
-                    <option>Outros</option>
-                    <option>Geral</option>
-                    <option>Administração</option>
-                    <option>Manutenção</option>
-                    <option>Podologia</option>
-                    <option>Educação</option>
-                    <option>Jardinagem</option>
-                  </select>
-                </div>
-
-                <div class="mb-3">
-                  <label class="form-label">Cidade</label>
-                  <select class="form-select">
-                    <option selected>Selecione</option>
+                  <label class="form-label" for="cidadePrestador">Cidade</label>
+                  <select class="form-select" id="cidadePrestador">
+                    <option value="">Selecione</option>
                     <option>São Paulo</option>
                     <option>Rio de Janeiro</option>
                     <option>Brasília</option>
@@ -324,24 +621,21 @@
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label">Valor por hora</label>
-                  <input type="text" class="form-control">
-                </div>
-
-                <div class="mb-3">
-                  <label class="form-label">Descreva seu serviço</label>
+                  <label class="form-label" for="descricaoServicoPrestador">Descreva seu serviço</label>
                   <textarea
-                    id="descricaoServico"
-                    placeholder="Descreva seu serviço..."
-                    oninput="autoResize(this)"
+                    id="descricaoServicoPrestador"
+                    class="form-control textarea-help"
+                    placeholder="Fale sobre sua experiência, como você trabalha, tipos de atendimento e diferenciais."
                   ></textarea>
                 </div>
 
                 <div class="d-grid">
                   <button type="submit" class="btn btn-gold">
-                    Postar Serviço
+                    Salvar Perfil de Prestador
                   </button>
                 </div>
+
+                <div id="mensagemPrestador"></div>
               </form>
             </div>
           </div>
@@ -352,8 +646,129 @@
             <img src="Midias/HELP_PNG.png.png" alt="Ilustração HELP">
           </div>
         </div>
-
       </div>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS DO PRESTADOR -->
+  <div class="section">
+    <h4 class="mb-4">Meus Serviços</h4>
+
+    <div class="card p-4 rounded-4 shadow-sm border-0">
+      <form id="formServicoPrestador">
+        <div class="row g-3">
+          <div class="col-12">
+            <label class="form-label" for="tituloServico">Nome do serviço</label>
+            <input type="text" class="form-control" id="tituloServico">
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Tipos de serviço</label>
+
+            <div class="multi-select-box">
+              <div class="multi-select-grid" id="grupoTiposServico">
+                <div class="form-check">
+                  <input class="form-check-input tipo-servico-checkbox" type="checkbox" value="Eletricista" id="tipoEletricista">
+                  <label class="form-check-label" for="tipoEletricista">Eletricista</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input tipo-servico-checkbox" type="checkbox" value="Encanador" id="tipoEncanador">
+                  <label class="form-check-label" for="tipoEncanador">Encanador</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input tipo-servico-checkbox" type="checkbox" value="Construção" id="tipoConstrucao">
+                  <label class="form-check-label" for="tipoConstrucao">Construção</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input tipo-servico-checkbox" type="checkbox" value="Limpeza" id="tipoLimpeza">
+                  <label class="form-check-label" for="tipoLimpeza">Limpeza</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input tipo-servico-checkbox" type="checkbox" value="Informática" id="tipoInformatica">
+                  <label class="form-check-label" for="tipoInformatica">Informática</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input tipo-servico-checkbox" type="checkbox" value="Outros" id="tipoOutros">
+                  <label class="form-check-label" for="tipoOutros">Outros</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input tipo-servico-checkbox" type="checkbox" value="Geral" id="tipoGeral">
+                  <label class="form-check-label" for="tipoGeral">Geral</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input tipo-servico-checkbox" type="checkbox" value="Administração" id="tipoAdministracao">
+                  <label class="form-check-label" for="tipoAdministracao">Administração</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input tipo-servico-checkbox" type="checkbox" value="Manutenção" id="tipoManutencao">
+                  <label class="form-check-label" for="tipoManutencao">Manutenção</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input tipo-servico-checkbox" type="checkbox" value="Podologia" id="tipoPodologia">
+                  <label class="form-check-label" for="tipoPodologia">Podologia</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input tipo-servico-checkbox" type="checkbox" value="Educação" id="tipoEducacao">
+                  <label class="form-check-label" for="tipoEducacao">Educação</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input tipo-servico-checkbox" type="checkbox" value="Jardinagem" id="tipoJardinagem">
+                  <label class="form-check-label" for="tipoJardinagem">Jardinagem</label>
+                </div>
+              </div>
+
+              <div class="input-info">Você pode selecionar mais de uma opção.</div>
+              <div class="selected-tags" id="tagsTiposServico"></div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="cidadeServico">Cidade / Região</label>
+            <input type="text" class="form-control" id="cidadeServico">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="valorServico">Faixa de valor</label>
+            <input type="text" class="form-control" id="valorServico">
+          </div>
+
+          <div class="col-12">
+            <label class="form-label" for="descricaoServico">Descrição do serviço</label>
+            <textarea
+              id="descricaoServico"
+              class="form-control textarea-help"
+              placeholder="Descreva o serviço, como ele funciona, experiência, materiais utilizados e diferenciais."
+            ></textarea>
+          </div>
+
+          <div class="col-12 d-flex gap-2 flex-wrap">
+            <button type="submit" class="btn btn-gold">Salvar serviço</button>
+            <button type="button" class="btn btn-outline-secondary" id="btnLimparServico">Limpar</button>
+          </div>
+        </div>
+
+        <div id="mensagemServico"></div>
+      </form>
+
+      <div class="services-toolbar">
+        <strong>Lista de serviços cadastrados</strong>
+        <button type="button" class="btn btn-danger btn-sm" id="btnExcluirSelecionados">
+          Excluir selecionados
+        </button>
+      </div>
+
+      <div class="services-list" id="listaServicos"></div>
     </div>
   </div>
 
@@ -452,15 +867,15 @@
 
       <div class="col-md-3">
         <h6>Navegação</h6>
-        <a href="#">Início</a>
-        <a href="#">Vagas</a>
-        <a href="#">Prestadores</a>
+        <a href="Pagina_Inicial.html">Início</a>
+        <a href="Busca_mobile.html">Vagas</a>
+        <a href="Prestar_Servico.html">Prestadores</a>
       </div>
 
       <div class="col-md-3">
         <h6>Ajuda</h6>
         <a href="#">Suporte</a>
-        <a href="#">Termos</a>
+        <a href="Termos_de_Uso.html">Termos</a>
         <a href="#">Privacidade</a>
       </div>
 
@@ -473,10 +888,239 @@
 </div>
 
 <script>
-  function autoResize(textarea){
-    textarea.style.height = "auto";
-    textarea.style.height = textarea.scrollHeight + "px";
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+  if (!usuario) {
+    window.location.href = "Login.html";
   }
+
+  // NAVBAR
+  document.getElementById("menuLogin").classList.add("d-none");
+  document.getElementById("menuCadastro").classList.add("d-none");
+  document.getElementById("menuUsuario").classList.remove("d-none");
+
+  document.getElementById("userMenuTexto").innerText = usuario.nome || "Usuário";
+  document.getElementById("nomeMenu").innerText = usuario.nome || "Usuário";
+  document.getElementById("fotoMenu").src = usuario.foto || "https://via.placeholder.com/60";
+  document.getElementById("userMenuFotoMini").src = usuario.foto || "https://via.placeholder.com/34";
+
+  document.getElementById("btnLogout").addEventListener("click", function(e) {
+    e.preventDefault();
+    localStorage.removeItem("usuario");
+    window.location.href = "Login.html";
+  });
+
+  // PERFIL DO PRESTADOR
+  const prestadorSalvo = JSON.parse(localStorage.getItem("prestadorHelp")) || {};
+  const dadosBase = {
+    nome: prestadorSalvo.nome || usuario?.nome || "",
+    email: prestadorSalvo.email || usuario?.email || "",
+    telefone: prestadorSalvo.telefone || usuario?.telefone || "",
+    cpf: prestadorSalvo.cpf || usuario?.cpf || "",
+    cidade: prestadorSalvo.cidade || "",
+    descricao: prestadorSalvo.descricao || ""
+  };
+
+  document.getElementById("nomePrestador").value = dadosBase.nome;
+  document.getElementById("emailPrestador").value = dadosBase.email;
+  document.getElementById("telefonePrestador").value = dadosBase.telefone;
+  document.getElementById("cpfPrestador").value = dadosBase.cpf;
+  document.getElementById("cidadePrestador").value = dadosBase.cidade;
+  document.getElementById("descricaoServicoPrestador").value = dadosBase.descricao;
+
+  document.getElementById("formPrestador").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const prestador = {
+      nome: document.getElementById("nomePrestador").value.trim(),
+      email: document.getElementById("emailPrestador").value.trim().toLowerCase(),
+      telefone: document.getElementById("telefonePrestador").value.trim(),
+      cpf: document.getElementById("cpfPrestador").value.trim(),
+      cidade: document.getElementById("cidadePrestador").value,
+      descricao: document.getElementById("descricaoServicoPrestador").value.trim(),
+      foto: usuario?.foto || "https://via.placeholder.com/60"
+    };
+
+    if (!prestador.nome || !prestador.email || !prestador.telefone) {
+      document.getElementById("mensagemPrestador").innerHTML =
+        "<div class='alert alert-danger'>Preencha os campos obrigatórios do perfil do prestador.</div>";
+      return;
+    }
+
+    localStorage.setItem("prestadorHelp", JSON.stringify(prestador));
+
+    document.getElementById("mensagemPrestador").innerHTML =
+      "<div class='alert alert-success'>Perfil do prestador salvo com sucesso!</div>";
+  });
+
+  // SERVIÇOS
+  let servicos = JSON.parse(localStorage.getItem("servicosPrestador")) || [];
+  let indiceEdicao = null;
+
+  function obterTiposServicoSelecionados() {
+    return [...document.querySelectorAll(".tipo-servico-checkbox:checked")]
+      .map(item => item.value);
+  }
+
+  function atualizarTagsTiposServico() {
+    const tags = document.getElementById("tagsTiposServico");
+    const selecionados = obterTiposServicoSelecionados();
+
+    if (selecionados.length === 0) {
+      tags.innerHTML = "";
+      return;
+    }
+
+    tags.innerHTML = selecionados
+      .map(tipo => `<span class="selected-tag">${tipo}</span>`)
+      .join("");
+  }
+
+  function limparTiposServico() {
+    document.querySelectorAll(".tipo-servico-checkbox").forEach(item => {
+      item.checked = false;
+    });
+    atualizarTagsTiposServico();
+  }
+
+  function marcarTiposServicoSelecionados(tipos = []) {
+    document.querySelectorAll(".tipo-servico-checkbox").forEach(item => {
+      item.checked = tipos.includes(item.value);
+    });
+    atualizarTagsTiposServico();
+  }
+
+  document.querySelectorAll(".tipo-servico-checkbox").forEach(item => {
+    item.addEventListener("change", atualizarTagsTiposServico);
+  });
+
+  function renderizarServicos() {
+    const lista = document.getElementById("listaServicos");
+
+    if (servicos.length === 0) {
+      lista.innerHTML = `
+        <div class="service-item">
+          <h5>Nenhum serviço cadastrado</h5>
+          <p>Cadastre seu primeiro serviço no formulário acima.</p>
+        </div>
+      `;
+      return;
+    }
+
+    lista.innerHTML = servicos.map((servico, index) => `
+      <div class="service-item">
+        <div class="service-top">
+          <input type="checkbox" class="service-check" data-select="${index}">
+          <div class="service-content">
+            <h5>${servico.titulo}</h5>
+            <div class="meta">${Array.isArray(servico.categoria) ? servico.categoria.join(", ") : servico.categoria} • ${servico.cidade}${servico.valor ? " • " + servico.valor : ""}</div>
+            <p>${servico.descricao}</p>
+            <div class="acoes-servico">
+              <button type="button" class="mini-btn editar" data-editar="${index}">Editar</button>
+              <button type="button" class="mini-btn excluir" data-excluir="${index}">Excluir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function limparFormularioServico() {
+    document.getElementById("tituloServico").value = "";
+    limparTiposServico();
+    document.getElementById("cidadeServico").value = "";
+    document.getElementById("valorServico").value = "";
+    document.getElementById("descricaoServico").value = "";
+    indiceEdicao = null;
+  }
+
+  document.getElementById("formServicoPrestador").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const servico = {
+      titulo: document.getElementById("tituloServico").value.trim(),
+      categoria: obterTiposServicoSelecionados(),
+      cidade: document.getElementById("cidadeServico").value.trim(),
+      valor: document.getElementById("valorServico").value.trim(),
+      descricao: document.getElementById("descricaoServico").value.trim()
+    };
+
+    if (!servico.titulo || servico.categoria.length === 0 || !servico.cidade || !servico.descricao) {
+      document.getElementById("mensagemServico").innerHTML =
+        "<div class='alert alert-danger'>Preencha os campos obrigatórios do serviço.</div>";
+      return;
+    }
+
+    if (indiceEdicao !== null) {
+      servicos[indiceEdicao] = servico;
+      document.getElementById("mensagemServico").innerHTML =
+        "<div class='alert alert-success'>Serviço atualizado com sucesso!</div>";
+    } else {
+      servicos.push(servico);
+      document.getElementById("mensagemServico").innerHTML =
+        "<div class='alert alert-success'>Serviço cadastrado com sucesso!</div>";
+    }
+
+    localStorage.setItem("servicosPrestador", JSON.stringify(servicos));
+    renderizarServicos();
+    limparFormularioServico();
+  });
+
+  document.getElementById("btnLimparServico").addEventListener("click", function() {
+    limparFormularioServico();
+    document.getElementById("mensagemServico").innerHTML = "";
+  });
+
+  document.getElementById("listaServicos").addEventListener("click", function(e) {
+    const editar = e.target.getAttribute("data-editar");
+    const excluir = e.target.getAttribute("data-excluir");
+
+    if (editar !== null) {
+      const servico = servicos[Number(editar)];
+
+      document.getElementById("tituloServico").value = servico.titulo;
+      marcarTiposServicoSelecionados(
+        Array.isArray(servico.categoria) ? servico.categoria : [servico.categoria]
+      );
+      document.getElementById("cidadeServico").value = servico.cidade;
+      document.getElementById("valorServico").value = servico.valor;
+      document.getElementById("descricaoServico").value = servico.descricao;
+
+      indiceEdicao = Number(editar);
+
+      document.getElementById("mensagemServico").innerHTML =
+        "<div class='alert alert-info'>Edite os dados e clique em salvar serviço.</div>";
+      return;
+    }
+
+    if (excluir !== null) {
+      servicos.splice(Number(excluir), 1);
+      localStorage.setItem("servicosPrestador", JSON.stringify(servicos));
+      renderizarServicos();
+      document.getElementById("mensagemServico").innerHTML =
+        "<div class='alert alert-warning'>Serviço removido.</div>";
+    }
+  });
+
+  document.getElementById("btnExcluirSelecionados").addEventListener("click", function() {
+    const selecionados = [...document.querySelectorAll("[data-select]:checked")]
+      .map(input => Number(input.getAttribute("data-select")));
+
+    if (selecionados.length === 0) {
+      document.getElementById("mensagemServico").innerHTML =
+        "<div class='alert alert-danger'>Selecione pelo menos um serviço para excluir.</div>";
+      return;
+    }
+
+    servicos = servicos.filter((_, index) => !selecionados.includes(index));
+    localStorage.setItem("servicosPrestador", JSON.stringify(servicos));
+    renderizarServicos();
+
+    document.getElementById("mensagemServico").innerHTML =
+      "<div class='alert alert-warning'>Serviços selecionados removidos.</div>";
+  });
+
+  renderizarServicos();
 </script>
 
 </body>
